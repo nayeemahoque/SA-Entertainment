@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Movies</title>
+    </head>
+    <body>
+        <table border="0px" width="100%" height="100%">
+            <tr height="144px" style="background-color: purple;">
+                <td width="20%" align="center">
+                    <img height="72" width="175" src="images/logo.png" alt="Logo">
+                </td>
+                <td width="70%" align="center" colspan="6" >
+                    <input type="text" placeholder="Search.." name="searchBox" value="" size="60%"/>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="4" align="center" style="background-color: peachpuff  ;">
+                    <img height="150" width="150" src="images/content-creator.jpg" alt="Profile Picture" style="border-radius:50%; padding-bottom: 24px;">
+                    <br>
+                    <a href="profile.html">
+                        <h3>
+                            My Profile
+                        </h3>
+                    </a>
+                </td>
+                </tr>
+                <tr>
+                <td height="40px" width="20%" colspan="6" align="center" style="background-color: skyblue;" >
+                            <h1 align="center">
+                                Movies
+                            </h1>
+                            
+                            <div class="dropup">
+                        <label for="genre"> <h2> Select movie type </h2></label>
+                        <select name= "genre">
+                            <option value="Thriller" selected>Thriller</option>
+                            <option value="Action ">Action and Adventure</option>
+                            <option value="Classics">Classics</option>
+                            <option value="Funny">Comic Book or Graphic Novel</option>
+                            <option value="Detective and Mystery"> Detective and Mystery</option>
+                            <option value="Historical Fiction">Historical Fiction</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Science Fiction (Sci-Fi)">Science Fiction</option>
+                            <option value="Suspense and Thrillers">Suspense and Thrillers</option>
+                        </select>
+                        <select name= "genre">
+                            <option value="Hollywood">Hollywood</option>
+                            <option value="Bollywood">Bollywood</option>
+                            <option value="Bangla">Bangla</option>
+                            <option value="K-drama">Kdrama</option>
+                            <option value="Turkish">Turkish</option>
+                        </select>
+                      </div>
+                </td>
+                </tr>
+            <tr>
+                <td align= "center" colspan="2">
+                    <div style="height: 50%; width: 100%;  background-color: lavender;">
+                                <h2>
+                                    Upload Movies here!
+                                </h2>
+                                <br>
+                                <form method="POST" action="uploadMovies.php" enctype="multipart/form-data">
+                                    <fieldset>
+                                         File: <input type="file" name="myfile" value=""/>
+                                             <input type="submit" name="submit" value="Submit"/>
+                                    </fieldset> 
+                                    <fieldset>
+                                        <legend>Upload Type</legend>
+                                        <input type="radio" name="uploadType" value="Free" required /> Free
+                                        <input type="radio" name="uploadType" value= "Paid" /> Paid
+                                    </fieldset>
+                                 </form>
+                    </div>
+                </td>    
+            <td align="center" colspan="2">
+                <div style="height: 50%; width: 100%; background-color: lavender;">
+                        <a href="seeContentsMovies.html">
+                            <h2>
+                                See your contents
+                            </h2>
+                        </a>
+                    </div>
+                </td>
+                <td></td>
+                <td align="center" colspan="2">
+                    <div style="height: 50%; width: 100%; background-color: lavender;">
+                        <a href="analyticsMovies.html">
+                            <h2>
+                                Analytics
+                            </h2>
+                        </a>
+                    </div>
+                </td>
+                </tr>
+        </table>     
+    </body>
+</html>

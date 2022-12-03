@@ -10,46 +10,6 @@
 </head>
 
 <body>
-  <script>
-    function validateRegistarion(){
-      var name = document.getElementById('name').value;
-      var email = document.getElementById('email').value;
-      var password = document.getElementById('password').value;
-      var confirmPassword = document.getElementById('confirmPassword').value;
-      // var male = document.getElementById('male').value;
-      // var female = document.getElementById('female').value;
-      // var other = document.getElementById('other').value;
-      var dob = document.getElementById('dob').value;
-
-      var dd = '';
-
-      if(name === '' || name === undefined) {
-        alert('Name is required');
-        return;
-      }
-      if(email === '' || email === undefined) {
-        alert('Email is required');
-        return;
-      }
-      if(password === '' || password === undefined) {
-        alert('Password is required');
-        return;
-      }
-      if(confirmPassword === '' || confirmPassword === undefined) {
-        alert('ConfirmPassword is required');
-        return;
-      }
-      if(password != confirmPassword){
-        alert('Password and Confirm Password do not match');
-      }
-      if(dob === '' || dob === undefined) {
-        alert('DOB is required');
-        return;
-      }
-      
-    }
-
-  </script>
   <table class="container-table">
     <tr class="top-menu-bar">
       <td class="w-20">
@@ -67,7 +27,7 @@
       <td class="w-20"></td>
       <td class="w-15"></td>
       <td class="w-30">
-        <form method="post" action="../../controller/general_subscriber/registration_controller.php" onsubmit="return validateRegistarion()" enctype="">
+        <form id="registration_form" onsubmit="return validateRegistarion()" enctype="multipart/form-data">
           <fieldset>
             <legend>GENERAL SUBSCRIBER REGISTRATION</legend>
             <table>
@@ -110,8 +70,8 @@
               </tr>
             </table>
             <hr>
-            <input type="submit" id="submit" name="submit" id="Submit">
-            <input type="reset" id="reset">
+            <input type="submit" id="submit" name="submit" value="Register">
+            <input type="button" id="reset" name="reset" value="Reset" onclick="resetRegistration()">
           </fieldset>
         </form>
       </td>
@@ -126,6 +86,85 @@
       <td colspan="2"></td>
     </tr>
   </table>
+  <script>
+    function validateRegistarion(){
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
+      var gender = '';
+      var dob = document.getElementById('dob').value;
+
+      if(document.getElementById('male').checked === true) {
+        gender = document.getElementById('male').value;
+      } else if(document.getElementById('female').checked === true) {
+        gender = document.getElementById('female').value;
+      } else if(document.getElementById('other').checked === true) {
+        gender = document.getElementById('other').value;
+      }
+
+      if(name === '' || name === undefined) {
+        alert('Name is required');
+        return;
+      }
+      if(email === '' || email === undefined) {
+        alert('Email is required');
+        return;
+      }
+      if(password === '' || password === undefined) {
+        alert('Password is required');
+        return;
+      }
+      if(confirmPassword === '' || confirmPassword === undefined) {
+        alert('ConfirmPassword is required');
+        return;
+      }
+      if(password != confirmPassword){
+        alert('Password and Confirm Password do not match');
+      }
+      if(password.length < 4) {
+        alert('Password must not be less than four (4) characters')
+      }
+      if(gender === ''){
+        alert('Gender is required');
+        return;
+      }
+      if(dob === '' || dob === undefined) {
+        alert('DOB is required');
+        return;
+      }
+
+      let xhttp = new XMLHttpRequest();
+      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      // var formData = new FormData();
+      // formData.append('name', name);
+      // formData.append('email', email);
+      // formData.append('password', password);
+      // formData.append('confirmPassword', confirmPassword);
+      // formData.append('gender', gender);
+      // formData.append('dob', dob);
+      xhttp.open('POST', '../../controller/general_subscriber/registration_controller.php', true);
+      // xhttp.send(formData);
+      xhttp.send('name='+name);
+      xhttp.onreadystatechange = function (){
+        if (this.readyState === 4 && xhttp.status === 200) {
+          alert(xhttp.responseText);
+        }
+      }
+      
+    }
+
+    function resetRegistration(){
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('confirmPassword').value = '';
+      document.getElementById('male').checked = false ;
+      document.getElementById('female').checked = false;
+      document.getElementById('other').checked = false;
+      var dob = document.getElementById('dob').value = '';
+    }
+  </script>
 </body>
 
 </html>

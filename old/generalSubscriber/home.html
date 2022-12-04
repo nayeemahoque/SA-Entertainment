@@ -10,7 +10,7 @@
                 </td>    
                 <td width="70%" align="center" colspan="5" >
                    
-                    <input type="text" placeholder="Search.." name="searchBox" value="" size="60%"/>
+                    <input type="text" id="search" placeholder="Search.." name="searchBox" onkeypress="search()" value="" size="60%"/>
                 </td>
             </tr>
             <tr>
@@ -117,5 +117,21 @@
                 
             </tr>
         </table>
+        <script>
+            function search(){
+                var searchKey = document.getElementById('search').value;
+                let xhttp = new XMLHttpRequest();
+                xhttp.open('POST', '../../controller/general_subscriber/registration_controller.php', true);
+                xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhttp.send('name='+name+'&email='+email+'&password='+password+'&confirmPassword='+confirmPassword+'&gender='+gender+'&dob='+dob);
+                xhttp.onload = function() {
+                    if (xhttp.status == 200) {
+                    alert(xhttp.responseText);
+                    } else {
+                    alert(`Error ${xhttp.status}: ${xhttp.statusText}`);
+                    }
+                };
+            }
+        </script>
     </body>
 </html>

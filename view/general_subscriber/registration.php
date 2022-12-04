@@ -27,7 +27,7 @@
       <td class="w-20"></td>
       <td class="w-15"></td>
       <td class="w-30">
-        <form id="registration_form" onsubmit="return validateRegistarion()" enctype="multipart/form-data">
+        <form id="registration_form" onsubmit="return validateRegistarion()">
           <fieldset>
             <legend>GENERAL SUBSCRIBER REGISTRATION</legend>
             <table>
@@ -135,23 +135,16 @@
       }
 
       let xhttp = new XMLHttpRequest();
-      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      // var formData = new FormData();
-      // formData.append('name', name);
-      // formData.append('email', email);
-      // formData.append('password', password);
-      // formData.append('confirmPassword', confirmPassword);
-      // formData.append('gender', gender);
-      // formData.append('dob', dob);
       xhttp.open('POST', '../../controller/general_subscriber/registration_controller.php', true);
-      // xhttp.send(formData);
-      xhttp.send('name='+name);
-      xhttp.onreadystatechange = function (){
-        if (this.readyState === 4 && xhttp.status === 200) {
+      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhttp.send('name='+name+'&email='+email+'&password='+password+'&confirmPassword='+confirmPassword+'&gender='+gender+'&dob='+dob);
+      xhttp.onload = function() {
+        if (xhttp.status == 200) {
           alert(xhttp.responseText);
+        } else {
+          alert(`Error ${xhttp.status}: ${xhttp.statusText}`);
         }
-      }
-      
+      };
     }
 
     function resetRegistration(){
@@ -162,7 +155,7 @@
       document.getElementById('male').checked = false ;
       document.getElementById('female').checked = false;
       document.getElementById('other').checked = false;
-      var dob = document.getElementById('dob').value = '';
+      document.getElementById('dob').value = '';
     }
   </script>
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2022 at 06:07 PM
+-- Generation Time: Dec 08, 2022 at 07:43 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -61,6 +61,18 @@ CREATE TABLE `book_list` (
   `ID` int(4) NOT NULL,
   `BookId` int(4) NOT NULL,
   `UserId` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `current_mood`
+--
+
+CREATE TABLE `current_mood` (
+  `ID` int(5) NOT NULL,
+  `userID` int(4) NOT NULL,
+  `type` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -323,19 +335,40 @@ CREATE TABLE `series_list` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `share_snap`
+--
+
+CREATE TABLE `share_snap` (
+  `ID` int(4) NOT NULL,
+  `userID` int(4) NOT NULL,
+  `file` varchar(80) NOT NULL,
+  `uploadedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
-  `ID` int(4) NOT NULL,
+  `Email` varchar(80) NOT NULL,
+  `Name` varchar(50) NOT NULL,
   `Password` varchar(30) NOT NULL,
   `Gender` varchar(6) NOT NULL,
   `Biography` text DEFAULT NULL,
-  `DOB` datetime NOT NULL,
+  `DOB` varchar(20) NOT NULL,
   `Picture` varchar(80) DEFAULT NULL,
-  `Type` varchar(25) NOT NULL,
-  `Email` varchar(80) NOT NULL
+  `Type` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`Email`, `Name`, `Password`, `Gender`, `Biography`, `DOB`, `Picture`, `Type`) VALUES
+('nayeema.mim03@gmail.com', 'nayeema', '1234', 'Female', '', '2000-12-05', '', 'general_subscriber'),
+('sadia@gmail.com', 'sadia', '1234', 'Male', '', '2022-11-28', '', 'general_subscriber');
 
 --
 -- Indexes for dumped tables
@@ -357,6 +390,12 @@ ALTER TABLE `book_history`
 -- Indexes for table `book_list`
 --
 ALTER TABLE `book_list`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `current_mood`
+--
+ALTER TABLE `current_mood`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -477,8 +516,7 @@ ALTER TABLE `series_list`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Email` (`Email`);
+  ADD PRIMARY KEY (`Email`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

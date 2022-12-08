@@ -1,5 +1,5 @@
 <?php 
-    include '../db_conn.php';
+    require_once(__DIR__.'/../db_conn.php');
 
     function insertUser($user) {
         $connection = getConnection();

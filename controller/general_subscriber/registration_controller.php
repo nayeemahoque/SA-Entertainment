@@ -1,6 +1,5 @@
 <?php
-    // include_once(APP_ROOT."/core/person_service.php");  
-    include '../../model/general_subscriber/registration_model.php';
+    require_once(__DIR__.'/../../model/general_subscriber/registration_model.php');
 
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -33,27 +32,12 @@
 
         if($status)
         {
+            //header("Location:index.php");
              echo "Success";
         }
         else 
         {
              echo "Failed to save user in database";
         }
-
-        // $connection = mysqli_connect('localhost', 'root', '', 'sa_entertainment_db');
-
-        // $sqlQuery = "INSERT INTO user(Email, Name, Password, Gender, Biography, DOB, Picture, Type) 
-        // VALUES ('{$email}','{$name}','{$password}','{$gender}','','{$dob}','','general_subscriber')";
-        
-        // $status = mysqli_query($connection, $sqlQuery);
-        
-        // if($status)
-        // {
-        //     echo "Success";
-        // }
-        // else 
-        // {
-        //     echo "Failed to save user in database";
-        // }
     }
 ?>

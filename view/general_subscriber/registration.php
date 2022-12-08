@@ -133,18 +133,21 @@
         alert('DOB is required');
         return;
       }
-
-      let xhttp = new XMLHttpRequest();
-      xhttp.open('POST', '../../controller/general_subscriber/registration_controller.php', true);
-      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      xhttp.send('name='+name+'&email='+email+'&password='+password+'&confirmPassword='+confirmPassword+'&gender='+gender+'&dob='+dob);
-      xhttp.onload = function() {
-        if (xhttp.status == 200) {
-          alert(xhttp.responseText);
-        } else {
-          alert(`Error ${xhttp.status}: ${xhttp.statusText}`);
-        }
-      };
+    
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("POST", "../../controller/general_subscriber/registration_controller.php", true);
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200)
+          {
+            alert(xhttp.responseText);
+            window.location = 'index.php';
+          } else {
+            alert(`Error ${xhttp.status}: ${xhttp.statusText}`);
+          }
+      }
+      var myForm = document.getElementById("registration_form");
+      var formData = new FormData(myForm);
+      xmlhttp.send(formData);
     }
 
     function resetRegistration(){

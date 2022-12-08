@@ -10,8 +10,8 @@
         global $dbpass;
         global $dbname;
 
-        $con = mysqli_connect($host, $dbuser, $dbpass, $dbname);
+        $connection = mysqli_connect($host, $dbuser, $dbpass, $dbname);
 
-        return  $con;
+        return  $connection;
     }
 ?>

@@ -1,5 +1,5 @@
 <?php 
-    require_once "../db.php";
+    include '../db_conn.php';
 
     function insertUser($user) {
         $connection = getConnection();

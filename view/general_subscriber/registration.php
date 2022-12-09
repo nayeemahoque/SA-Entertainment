@@ -7,6 +7,7 @@
 <head>
   <title>General Subscriber Registration</title>
   <link rel="stylesheet" href="../../assets/style.css">
+  <script src="../../script/general_subscriber/registration.js"></script>
 </head>
 
 <body>
@@ -27,29 +28,29 @@
       <td class="w-20"></td>
       <td class="w-15"></td>
       <td class="w-30">
-        <form id="registration_form" onsubmit="return validateRegistarion()">
+        <form id="registration_form" method="post" action="../../controller/general_subscriber/registration_controller.php">
           <fieldset>
             <legend>GENERAL SUBSCRIBER REGISTRATION</legend>
             <table>
               <tr>
                 <td>Name </td>
                 <td>:</td>
-                <td><input type="text" id="name" name="name" value="" required></td>
+                <td><input type="text" id="name" name="name" value="" onblur="validateName()" required></td>
               </tr>
               <tr>
                 <td>Email </td>
                 <td>:</td>
-                <td><input type="email" id="email" name="email" value="" required></td>
+                <td><input type="email" id="email" name="email" value="" onblur="validateEmail()" required></td>
               </tr>
               <tr>
                 <td>Password </td>
                 <td>:</td>
-                <td><input type="password" id="password" name="password" value="" required></td>
+                <td><input type="password" id="password" name="password" value="" onblur="validatePassword()" required></td>
               </tr>
               <tr>
                 <td>Confirm Password </td>
                 <td>:</td>
-                <td><input type="password" id="confirmPassword" name="confirmPassword" required></td>
+                <td><input type="password" id="confirmPassword" name="confirmPassword" onblur="validateConfirmPassword()" required></td>
               </tr>
             </table>
             <hr>
@@ -65,7 +66,7 @@
               <tr>
                 <fieldset>
                   <legend>Date of Birth</legend>
-                  <input type="date" id="dob" name="dob" required>
+                  <input type="date" id="dob" name="dob" onblur="validateDob()" required>
                 </fieldset>
               </tr>
             </table>
@@ -160,6 +161,8 @@
       document.getElementById('other').checked = false;
       document.getElementById('dob').value = '';
     }
+
+    
   </script>
 </body>
 

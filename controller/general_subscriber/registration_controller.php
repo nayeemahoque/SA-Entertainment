@@ -26,14 +26,12 @@
         echo "Password must not be less than four (4) characters";
     } 
     else {
-
         $user = ['name'=>$name, 'email'=>$email, 'password'=>$password, 'confirmPassword'=>$confirmPassword, 'gender'=>$gender, 'dob'=>$dob];
         $status = insertUser($user);
 
-        if($status)
+        if($status == true)
         {
-            //header("Location:index.php");
-             echo "Success";
+            header("Location: ../../index.php");
         }
         else 
         {

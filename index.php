@@ -1,5 +1,5 @@
 <?php
-   
+
 ?>
 
 <html>
@@ -17,7 +17,7 @@
         <img class="logo" src="assets/common/logo.png" alt="Logo" />
       </td>
       <td colspan="4" align="right">
-        
+
       </td>
     </tr>
     <tr>
@@ -42,11 +42,27 @@
             <hr>
             <input type="submit" id="submit" name="submit" value="Login">
           </fieldset>
+          <div width="100%" align="center">
+            <a href="view/admin/registration.php" align="center">
+              Register As <br>
+              || Admin ||
+            </a>
+            <a href="view/paid_subscriber/registration.php" align="center">
+              Paid Subscriber ||
+            </a>
+            <a href="view/general_subscriber/registration.php" align="center">
+              General Subscriber ||
+            </a>
+            <a href="view/content_creator/registration.php" align="center">
+              Content Creator ||
+            </a>
+          </div>
         </form>
       </td>
       <td class="w-15"></td>
       <td class="w-20"></td>
     </tr>
+
     <tr align="center">
       <td colspan="2"></td>
       <td>

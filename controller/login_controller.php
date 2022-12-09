@@ -18,7 +18,7 @@
             setcookie('email', $userData['Email'], time()+3600, '/');
 
             if($userData['Type'] == 'general_subscriber') {
-                header("Location: ../view/general_subscriber/home.html");
+                header("Location: ../view/general_subscriber/home.php");
             }
             else if($userData['Type'] == 'content_creator'){
                 header("Location: ../view/content_creator/home.html");

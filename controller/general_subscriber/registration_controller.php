@@ -29,8 +29,9 @@
         $user = ['name'=>$name, 'email'=>$email, 'password'=>$password, 'confirmPassword'=>$confirmPassword, 'gender'=>$gender, 'dob'=>$dob];
         $status = insertUser($user);
 
-        if($status == true)
+        if($status)
         {
+            echo $status;
             header("Location: ../../index.php");
         }
         else 

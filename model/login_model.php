@@ -4,8 +4,8 @@
     function authenticateUser($user) {
         $connection = getConnection();
         $sqlQuery = "SELECT * FROM user WHERE Email = '{$user['email']}' AND Password = '{$user['password']}';";
-
-        $status = mysqli_query($connection, $sqlQuery);
-        return $status;
+        $result = mysqli_query($connection, $sqlQuery);
+        $user = mysqli_fetch_assoc($result);
+        return $user;
     }
 ?>

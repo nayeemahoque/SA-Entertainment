@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
+    header('location: ../../index.php?err=invalid_request');
+}
+
+if ($_SESSION['userType'] != 'content_creator') {
+    header('location: ../../index.php?err=invalid_request');
+}
 
 ?>
 
@@ -31,7 +40,9 @@
                         My Profile
                     </span>
                 </a>
-                <input type="submit" name="logoutSubmit" value="Log Out" />
+                <form method="post" action="../../controller/logout_controller.php">
+                    <input type="submit" name="logoutSubmit" value="Log Out" />
+                </form>
             </td>
         </tr>
         <tr>

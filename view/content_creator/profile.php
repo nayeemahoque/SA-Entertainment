@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
+    header('location: ../../index.php?err=invalid_request');
+}
+
+if ($_SESSION['userType'] != 'content_creator') {
+    header('location: ../../index.php?err=invalid_request');
+}
 
 ?>
 
@@ -35,7 +44,37 @@
             </td>
         </tr>
         <tr>
-
+            <td rowspan="5" class="w-20">
+                nayeemar pic
+            </td>
+            <td class="w-20"></td>
+            <td class="w-20">Name</td>
+            <td class="w-20">Nayeema</td>
+            <td class="w-20"></td>
+        </tr>
+        <tr>
+            <td class="w-20"></td>
+            <td class="w-20">Biography</td>
+            <td class="w-20">Nayeemar bio</td>
+            <td class="w-20"></td>
+        </tr>
+        <tr>
+            <td class="w-20"></td>
+            <td class="w-20">Gender</td>
+            <td class="w-20">Nayeemar gender</td>
+            <td class="w-20"></td>
+        </tr>
+        <tr>
+            <td class="w-20"></td>
+            <td class="w-20">Email</td>
+            <td class="w-20">Nayeemar email</td>
+            <td class="w-20"></td>
+        </tr>
+        <tr>
+            <td class="w-20"></td>
+            <td class="w-20">DOB</td>
+            <td class="w-20">Nayeemar dob</td>
+            <td class="w-20"></td>
         </tr>
     </table>
 </body>

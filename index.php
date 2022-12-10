@@ -1,5 +1,13 @@
 <?php
+if (isset($_GET['err'])) {
+  if ($_GET['err'] == 'invalid_request') {
+    echo "invalid request error..";
+  }
 
+  if ($_GET['err'] == 'null') {
+    echo "null username/password";
+  }
+}
 ?>
 
 <html>
@@ -43,7 +51,7 @@
             <input type="submit" id="submit" name="submit" value="Login">
           </fieldset>
           <div width="100%" align="center">
-          Register As <br>
+            Register As <br>
             <a href="view/admin/registration.php" align="center">
               || Admin ||
             </a>
@@ -65,29 +73,29 @@
   </table>
 </body>
 <footer>
-    <table class="footer-bar">
-        <tr align="center">
-            <td class="w-20"></td>
-            <td class="w-20">
-                <a href="../common/about_us.php">
-                    <span class="top-menu-item">
-                        About Us
-                    </span>
-                </a>
-            </td>
-            <td class="w-20">
-                <footer style="margin: 10px">Copyright &copy; 2022</footer>
-            </td>
-            <td class="w-20">
-                <a href="../common/contact_us.php">
-                    <span class="top-menu-item">
-                        Contact Us
-                    </span>
-                </a>
-            </td>
-            <td class="w-20"></td>
-        </tr>
-    </table>
+  <table class="footer-bar">
+    <tr align="center">
+      <td class="w-20"></td>
+      <td class="w-20">
+        <a href="../common/about_us.php">
+          <span class="top-menu-item">
+            About Us
+          </span>
+        </a>
+      </td>
+      <td class="w-20">
+        <footer style="margin: 10px">Copyright &copy; 2022</footer>
+      </td>
+      <td class="w-20">
+        <a href="../common/contact_us.php">
+          <span class="top-menu-item">
+            Contact Us
+          </span>
+        </a>
+      </td>
+      <td class="w-20"></td>
+    </tr>
+  </table>
 </footer>
 
 </html>

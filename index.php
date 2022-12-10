@@ -43,8 +43,8 @@
             <input type="submit" id="submit" name="submit" value="Login">
           </fieldset>
           <div width="100%" align="center">
+          Register As <br>
             <a href="view/admin/registration.php" align="center">
-              Register As <br>
               || Admin ||
             </a>
             <a href="view/paid_subscriber/registration.php" align="center">
@@ -62,15 +62,32 @@
       <td class="w-15"></td>
       <td class="w-20"></td>
     </tr>
-
-    <tr align="center">
-      <td colspan="2"></td>
-      <td>
-        <footer style="margin: 10px">Copyright &copy; 2022</footer>
-      </td>
-      <td colspan="2"></td>
-    </tr>
   </table>
 </body>
+<footer>
+    <table class="footer-bar">
+        <tr align="center">
+            <td class="w-20"></td>
+            <td class="w-20">
+                <a href="../common/about_us.php">
+                    <span class="top-menu-item">
+                        About Us
+                    </span>
+                </a>
+            </td>
+            <td class="w-20">
+                <footer style="margin: 10px">Copyright &copy; 2022</footer>
+            </td>
+            <td class="w-20">
+                <a href="../common/contact_us.php">
+                    <span class="top-menu-item">
+                        Contact Us
+                    </span>
+                </a>
+            </td>
+            <td class="w-20"></td>
+        </tr>
+    </table>
+</footer>
 
 </html>

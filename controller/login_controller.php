@@ -19,9 +19,15 @@
 
             if($userData['Type'] == 'general_subscriber') {
                 header("Location: ../view/general_subscriber/home.php");
+            } else if($userData['Type'] == 'content_creator'){
+                header("Location: ../view/content_creator/home.php");
+            } else if($userData['Type'] == 'paid_subscriber'){
+                header("Location: ../view/paid_subscriber/home.php");
+            } else if($userData['Type'] == 'admin'){
+                header("Location: ../view/admin/home.php");
             }
-            else if($userData['Type'] == 'content_creator'){
-                header("Location: ../view/content_creator/home.html");
+            else {
+                header("Location: ../index.php");
             }
         }
         else 

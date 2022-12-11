@@ -7,12 +7,12 @@ body {
     margin: 0;
 }
 
- @keyframes example {
+ /* @keyframes example {
     0%   {background-color: #E5E1EE;}
     25%  {background-color: #DFFDFF;}
     50%  {background-color: #90BEDE;}
     100% {background-color: #90F3FF;}
-  } 
+  }  */
   /* @keyframes example {
     0%   {background-color: rgb(176, 112, 161);}
     25%  {background-color: rgb(220, 220, 163);}

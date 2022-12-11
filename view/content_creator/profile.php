@@ -41,6 +41,11 @@ $profileData = getProfileData();
                         My Profile
                     </span>
                 </a>
+                <a href="edit_profile.php">
+                    <span class="top-menu-item">
+                        Edit Profile
+                    </span>
+                </a>
                 <form method="post" action="../../controller/logout_controller.php">
                     <input type="submit" name="logoutSubmit" value="Log Out" />
                 </form>
@@ -53,7 +58,9 @@ $profileData = getProfileData();
                     <img src="../../assets/common/user.jpg" class="profile-picture" alt="Profile Picture">
                 <?php
                 } else {
-                    echo "Ache";
+                ?>
+                    <img src="<?php echo $profileData['Picture'] . ".jpg"; ?>" class="profile-picture" alt="Profile Picture">
+                <?php
                 } ?>
             </td>
             <td class="w-20"></td>

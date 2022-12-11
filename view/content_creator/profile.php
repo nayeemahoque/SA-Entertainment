@@ -65,32 +65,44 @@ $profileData = getProfileData();
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20">Biography</td>
             <td class="w-20">
+                <hr class="new1">Biography
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['Biography']; ?>
             </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20">Gender</td>
             <td class="w-20">
+                <hr class="new1">Gender
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['Gender']; ?>
             </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20">Email</td>
             <td class="w-20">
+                <hr class="new1">Email
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['Email']; ?>
             </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20">DOB</td>
             <td class="w-20">
+                <hr class="new1">DOB
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['DOB']; ?>
             </td>
             <td class="w-20"></td>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once(__DIR__ . '/../../controller/content_creator/profile_controller.php');
 
 if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
     header('location: ../../index.php?err=invalid_request');
@@ -9,6 +9,7 @@ if ($_SESSION['userType'] != 'content_creator') {
     header('location: ../../index.php?err=invalid_request');
 }
 
+$profileData = getProfileData();
 ?>
 
 <html>
@@ -40,40 +41,58 @@ if ($_SESSION['userType'] != 'content_creator') {
                         My Profile
                     </span>
                 </a>
-                <input type="submit" name="logoutSubmit" value="Log Out" />
+                <form method="post" action="../../controller/logout_controller.php">
+                    <input type="submit" name="logoutSubmit" value="Log Out" />
+                </form>
             </td>
         </tr>
         <tr>
             <td rowspan="5" class="w-20">
-                nayeemar pic
+                <?php if ($profileData['Picture'] == "") {
+                ?>
+                    <img src="../../assets/common/user.jpg" class="profile-picture" alt="Profile Picture">
+                <?php
+                } else {
+                    echo "Ache";
+                } ?>
             </td>
             <td class="w-20"></td>
             <td class="w-20">Name</td>
-            <td class="w-20">Nayeema</td>
+            <td class="w-20">
+                <?php echo $profileData['Name']; ?>
+            </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
             <td class="w-20">Biography</td>
-            <td class="w-20">Nayeemar bio</td>
+            <td class="w-20">
+                <?php echo $profileData['Biography']; ?>
+            </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
             <td class="w-20">Gender</td>
-            <td class="w-20">Nayeemar gender</td>
+            <td class="w-20">
+                <?php echo $profileData['Gender']; ?>
+            </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
             <td class="w-20">Email</td>
-            <td class="w-20">Nayeemar email</td>
+            <td class="w-20">
+                <?php echo $profileData['Email']; ?>
+            </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
             <td class="w-20">DOB</td>
-            <td class="w-20">Nayeemar dob</td>
+            <td class="w-20">
+                <?php echo $profileData['DOB']; ?>
+            </td>
             <td class="w-20"></td>
         </tr>
     </table>

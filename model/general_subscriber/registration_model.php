@@ -7,6 +7,6 @@
         VALUES ('{$user['email']}','{$user['name']}','{$user['password']}','{$user['gender']}','','{$user['dob']}','','general_subscriber')";
 
         $status = mysqli_query($connection, $sqlQuery);
+        mysqli_close($connection);
         return $status;
     }
-?>

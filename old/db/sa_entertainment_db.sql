@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2022 at 09:34 AM
+-- Generation Time: Dec 12, 2022 at 04:43 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -368,17 +368,16 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`Email`, `Name`, `Password`, `Gender`, `Biography`, `DOB`, `Picture`, `Type`) VALUES
 ('aneen@gmail.com', 'aneen', '1591', 'Female', '', '2000-11-29', '', 'content_creator'),
-('cat@gmail.com', 'cat', '151515', 'Male', '', '1999-11-27', '', 'general_subscriber'),
+('cat@gmail.com', 'cat', '151515', 'Male', '                                                                                                                                                                                         I am cat                                                                                                                                                                                                                      ', '1999-11-27', '../../assets/general_subscriber/uploads/profile_pictures/cat@gmail.com', 'general_subscriber'),
 ('jesmin@gmail.com', 'jesmin', '1234567', 'Female', '', '2000-11-27', '', 'general_subscriber'),
 ('man@gmail.com', 'man', '121212', 'Male', '', '2022-11-28', '', 'general_subscriber'),
 ('nayeema.mim03@gmail.com', 'nayeema', '1234', 'Female', '', '2000-12-05', '', 'general_subscriber'),
 ('ony@gmail.com', 'ony', '12356', 'Female', '', '2000-11-27', '', 'general_subscriber'),
 ('rafi@gmail.com', 'rafi', '123123', 'Male', '', '2000-11-27', '', 'general_subscriber'),
-('sadia@gmail.com', 'sadia', '1234', 'Male', '', '2022-11-28', '', 'general_subscriber'),
-('tanzirul.haque@outlook.com', 'tanzir', '11112', 'Male', '', '2022-12-04', '', 'general_subscriber'),
-('tanzirul@outlook.com', 'tanzir', '1212', 'Male', '', '2022-12-05', '', 'general_subscriber'),
+('rezaul@gmail.com', 'Md Rezaul', '123123', 'Male', '     Traveler                                                               ', '1988-11-27', '../../assets/content_creator/uploads/profile_pictures/rezaul@gmail.com', 'content_creator'),
+('sadia@gmail.com', 'Sadia Afrin', '12345', 'Female', 'Chairperson\r\nIEEE AIUB SB                                                           ', '2000-02-02', '../../assets/general_subscriber/uploads/profile_pictures/sadia@gmail.com', 'general_subscriber'),
 ('tiham@gmail.com', 'Tiham', '1234567', 'Male', '', '2000-12-06', '', 'general_subscriber'),
-('tripty@gmail.com', 'tripty', '123321', 'Female', '', '2000-12-12', '', 'content_creator');
+('tripty@gmail.com', 'mim', '123321', 'Female', '                             mim mim                               ', '2000-12-12', '../../assets/content_creator/uploads/profile_pictures/tripty@gmail.com', 'content_creator');
 
 --
 -- Indexes for dumped tables

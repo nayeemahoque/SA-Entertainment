@@ -26,3 +26,4 @@ function updateUser($email, $name, $biography, $picture)
     mysqli_close($connection);
     return $result;
 }
+?>

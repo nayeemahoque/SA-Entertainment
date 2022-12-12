@@ -13,6 +13,7 @@ $profileData = getProfileData();
 ?>
 
 <html>
+
 <head>
     <title>Content Creator | Profile</title>
     <link rel="stylesheet" href="../../assets/style.css">
@@ -39,6 +40,11 @@ $profileData = getProfileData();
                     <span class="top-menu-item">
                         My Profile
                     </span>
+                <a href="edit_profile.php">
+                    <span class="top-menu-item">
+                        Edit Profile
+                    </span>
+                </a>
                 </a>
                 <form method="post" action="../../controller/logout_controller.php">
                     <input type="submit" name="logoutSubmit" value="Log Out" />
@@ -46,13 +52,15 @@ $profileData = getProfileData();
             </td>
         </tr>
         <tr>
-            <td rowspan="5" class="w-20">
+        <td rowspan="5" class="w-20">
                 <?php if ($profileData['Picture'] == "") {
                 ?>
                     <img src="../../assets/common/user.jpg" class="profile-picture" alt="Profile Picture">
                 <?php
                 } else {
-                    echo "Ache";
+                ?>
+                    <img src="<?php echo $profileData['Picture'] . ".jpg"; ?>" class="profile-picture" alt="Profile Picture">
+                <?php
                 } ?>
             </td>
             <td class="w-20"></td>
@@ -64,36 +72,44 @@ $profileData = getProfileData();
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20"><hr class="new1">Biography</td>
             <td class="w-20">
-            <hr class="new1">
+                <hr class="new1">Biography
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['Biography']; ?>
             </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20"><hr class="new1">Gender</td>
             <td class="w-20">
-            <hr class="new1">
+                <hr class="new1">Gender
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['Gender']; ?>
             </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20"><hr class="new1">Email</td>
             <td class="w-20">
-            <hr class="new1">
+                <hr class="new1">Email
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['Email']; ?>
             </td>
             <td class="w-20"></td>
         </tr>
         <tr>
             <td class="w-20"></td>
-            <td class="w-20"><hr class="new1">DOB</td>
             <td class="w-20">
-            <hr class="new1">
+                <hr class="new1">DOB
+            </td>
+            <td class="w-20">
+                <hr class="new1">
                 <?php echo $profileData['DOB']; ?>
             </td>
             <td class="w-20"></td>

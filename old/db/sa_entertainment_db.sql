@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 04:43 PM
+-- Generation Time: Dec 12, 2022 at 08:43 PM
 -- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,15 +28,25 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `book` (
-  `ID` int(4) NOT NULL,
-  `Title` varchar(60) NOT NULL,
-  `Author` varchar(60) NOT NULL,
-  `GenreId` int(4) NOT NULL,
-  `UploadedBy` int(4) NOT NULL,
-  `UploadedAt` datetime NOT NULL,
-  `File` varchar(80) NOT NULL,
-  `IsOpenForGenSub` bit(1) NOT NULL
+  `Title` varchar(100) NOT NULL,
+  `Author` varchar(100) NOT NULL,
+  `Genre` varchar(100) NOT NULL,
+  `UploadedBy` varchar(100) NOT NULL,
+  `UploadedAt` varchar(40) NOT NULL,
+  `File` varchar(160) NOT NULL,
+  `IsOpenForGenSub` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`) VALUES
+('test book', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 06:52pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book', 'y'),
+('test book 2', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:00pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 2', 'y'),
+('test book 3', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:10pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 3', 'y'),
+('test book 4', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:47pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 4', 'y'),
+('test book 5', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 5', 'y');
 
 -- --------------------------------------------------------
 
@@ -368,26 +378,20 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`Email`, `Name`, `Password`, `Gender`, `Biography`, `DOB`, `Picture`, `Type`) VALUES
 ('aneen@gmail.com', 'aneen', '1591', 'Female', '', '2000-11-29', '', 'content_creator'),
-('cat@gmail.com', 'cat', '151515', 'Male', '                                                                                                                                                                                         I am cat                                                                                                                                                                                                                      ', '1999-11-27', '../../assets/general_subscriber/uploads/profile_pictures/cat@gmail.com', 'general_subscriber'),
+('cat@gmail.com', 'cat', '151515', 'Male', '                                                                                                                                                                                                                                                                                                                                                                                                                                                     I am cat                                                                                                                                                                                                                                                                                                                                                                                                                                                      ', '1999-11-27', '../../assets/general_subscriber/uploads/profile_pictures/cat@gmail.com', 'general_subscriber'),
 ('jesmin@gmail.com', 'jesmin', '1234567', 'Female', '', '2000-11-27', '', 'general_subscriber'),
 ('man@gmail.com', 'man', '121212', 'Male', '', '2022-11-28', '', 'general_subscriber'),
 ('nayeema.mim03@gmail.com', 'nayeema', '1234', 'Female', '', '2000-12-05', '', 'general_subscriber'),
 ('ony@gmail.com', 'ony', '12356', 'Female', '', '2000-11-27', '', 'general_subscriber'),
 ('rafi@gmail.com', 'rafi', '123123', 'Male', '', '2000-11-27', '', 'general_subscriber'),
 ('rezaul@gmail.com', 'Md Rezaul', '123123', 'Male', '     Traveler                                                               ', '1988-11-27', '../../assets/content_creator/uploads/profile_pictures/rezaul@gmail.com', 'content_creator'),
-('sadia@gmail.com', 'Sadia Afrin', '12345', 'Female', 'Chairperson\r\nIEEE AIUB SB                                                           ', '2000-02-02', '../../assets/general_subscriber/uploads/profile_pictures/sadia@gmail.com', 'general_subscriber'),
+('sadia@gmail.com', 'Sadia Afrin', '12345', 'Female', '                                                                        Chairperson\r\nIEEE AIUB SB                                                                                                                      ', '2000-02-02', '../../assets/general_subscriber/uploads/profile_pictures/sadia@gmail.com', 'general_subscriber'),
 ('tiham@gmail.com', 'Tiham', '1234567', 'Male', '', '2000-12-06', '', 'general_subscriber'),
 ('tripty@gmail.com', 'mim', '123321', 'Female', '                             mim mim                               ', '2000-12-12', '../../assets/content_creator/uploads/profile_pictures/tripty@gmail.com', 'content_creator');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `book`
---
-ALTER TABLE `book`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `book_history`

@@ -15,7 +15,7 @@ $profileData = getProfileData();
 <html>
 
 <head>
-    <title>Content Creator | Profile</title>
+    <title>General Subscriber | Profile</title>
     <link rel="stylesheet" href="../../assets/style.css">
 </head>
 
@@ -40,11 +40,11 @@ $profileData = getProfileData();
                     <span class="top-menu-item">
                         My Profile
                     </span>
-                <a href="edit_profile.php">
-                    <span class="top-menu-item">
-                        Edit Profile
-                    </span>
-                </a>
+                    <a href="edit_profile.php">
+                        <span class="top-menu-item">
+                            Edit Profile
+                        </span>
+                    </a>
                 </a>
                 <form method="post" action="../../controller/logout_controller.php">
                     <input type="submit" name="logoutSubmit" value="Log Out" />
@@ -52,7 +52,7 @@ $profileData = getProfileData();
             </td>
         </tr>
         <tr>
-        <td rowspan="5" class="w-20">
+            <td rowspan="5" class="w-20">
                 <?php if ($profileData['Picture'] == "") {
                 ?>
                     <img src="../../assets/common/user.jpg" class="profile-picture" alt="Profile Picture">

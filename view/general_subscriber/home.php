@@ -13,7 +13,7 @@ if ($_SESSION['userType'] != 'general_subscriber') {
 <html>
 
 <head>
-    <title>General Subscriber Home</title>
+    <title>General Subscriber | Home</title>
     <link rel="stylesheet" href="../../assets/style.css">
 </head>
 

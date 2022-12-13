@@ -39,7 +39,8 @@ if (isset($_FILES['movieFile'])) {
     $ext = strtolower(pathinfo($_FILES['movieFile']['name'], PATHINFO_EXTENSION));
 
     if ($ext != "mp4") {
-        echo "Only .mp4 files are allowed.";
+        header('location: ../../view/content_creator/upload_movie.php?err=Only .mp4 files are allowed');
+        return;
     }
 
     $target_dir = "../../assets/content_creator/uploads/movies/";
@@ -55,7 +56,7 @@ $status = insertMovie($movie);
 
 if($status)
         {
-            header("Location: ../../view/content_creator/home.php");
+            header("Location: ../../view/content_creator/uploaded_movie.php");
         }
         else 
         {

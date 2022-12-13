@@ -14,9 +14,9 @@ if ($_SESSION['userType'] != 'content_creator') {
 function getUploadedMovies()
 {
     $loggedInUserEmail = $_SESSION['userEmail'];
-    $books =  getMoviesByUserEmail($loggedInUserEmail);
+    $movie =  getMoviesByUserEmail($loggedInUserEmail);
 
-    return $books;
+    return $movie;
 }
 
 ?>

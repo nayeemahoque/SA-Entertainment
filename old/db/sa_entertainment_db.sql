@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 01:36 PM
+-- Generation Time: Dec 13, 2022 at 02:14 PM
 -- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -97,13 +97,12 @@ CREATE TABLE `current_mood` (
 --
 
 CREATE TABLE `game` (
-  `ID` int(4) NOT NULL,
-  `Title` varchar(60) NOT NULL,
-  `File` varchar(80) NOT NULL,
-  `GenreId` int(4) NOT NULL,
-  `UploadedBy` int(4) NOT NULL,
-  `UploadedAt` datetime NOT NULL,
-  `IsOpenForGenSub` bit(1) NOT NULL
+  `Title` varchar(100) NOT NULL,
+  `File` varchar(160) NOT NULL,
+  `Genre` varchar(100) NOT NULL,
+  `UploadedBy` varchar(100) NOT NULL,
+  `UploadedAt` varchar(100) NOT NULL,
+  `IsOpenForGenSub` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -129,17 +128,6 @@ CREATE TABLE `game_list` (
   `ID` int(4) NOT NULL,
   `GameId` int(4) NOT NULL,
   `UserId` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `genre`
---
-
-CREATE TABLE `genre` (
-  `ID` int(4) NOT NULL,
-  `Name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -198,15 +186,14 @@ CREATE TABLE `movie_list` (
 --
 
 CREATE TABLE `music` (
-  `ID` int(4) NOT NULL,
-  `Title` varchar(60) NOT NULL,
-  `Artist` varchar(30) NOT NULL,
-  `GenreId` int(4) NOT NULL,
-  `Language` varchar(15) NOT NULL,
-  `UploadedBy` int(4) NOT NULL,
-  `UploadedAt` datetime NOT NULL,
-  `File` varchar(80) NOT NULL,
-  `IsOpenForGenSub` bit(1) NOT NULL
+  `Title` varchar(100) NOT NULL,
+  `Artist` varchar(100) NOT NULL,
+  `Genre` varchar(100) NOT NULL,
+  `Language` varchar(100) NOT NULL,
+  `UploadedBy` varchar(100) NOT NULL,
+  `UploadedAt` varchar(100) NOT NULL,
+  `File` varchar(160) NOT NULL,
+  `IsOpenForGenSub` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -319,14 +306,13 @@ CREATE TABLE `promoted_series` (
 --
 
 CREATE TABLE `series` (
-  `ID` int(4) NOT NULL,
-  `Title` varchar(60) NOT NULL,
-  `ReleaseDate` datetime NOT NULL,
-  `GenreId` int(4) NOT NULL,
-  `File` varchar(80) NOT NULL,
-  `UploadedBy` int(4) NOT NULL,
-  `UploadedAt` datetime NOT NULL,
-  `IsOpenForGenSub` bit(1) NOT NULL
+  `Title` varchar(100) NOT NULL,
+  `ReleaseDate` varchar(100) NOT NULL,
+  `Genre` varchar(100) NOT NULL,
+  `File` varchar(160) NOT NULL,
+  `UploadedBy` varchar(100) NOT NULL,
+  `UploadedAt` varchar(100) NOT NULL,
+  `IsOpenForGenSub` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -424,12 +410,6 @@ ALTER TABLE `current_mood`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `game`
---
-ALTER TABLE `game`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `game_history`
 --
 ALTER TABLE `game_history`
@@ -442,12 +422,6 @@ ALTER TABLE `game_list`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `genre`
---
-ALTER TABLE `genre`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `movie_history`
 --
 ALTER TABLE `movie_history`
@@ -457,12 +431,6 @@ ALTER TABLE `movie_history`
 -- Indexes for table `movie_list`
 --
 ALTER TABLE `movie_list`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `music`
---
-ALTER TABLE `music`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -511,12 +479,6 @@ ALTER TABLE `promoted_music`
 -- Indexes for table `promoted_series`
 --
 ALTER TABLE `promoted_series`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `series`
---
-ALTER TABLE `series`
   ADD PRIMARY KEY (`ID`);
 
 --

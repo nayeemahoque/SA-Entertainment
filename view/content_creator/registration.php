@@ -80,13 +80,6 @@
       <td class="w-15"></td>
       <td class="w-20"></td>
     </tr>
-    <tr align="center">
-      <td colspan="2"></td>
-      <td>
-        <footer style="margin: 10px">Copyright &copy; 2022</footer>
-      </td>
-      <td colspan="2"></td>
-    </tr>
   </table>
 </body>
 <footer>

@@ -26,7 +26,7 @@ function validateGenre() {
     }
 }
 
-function validateBookFile() {
+function validateMovieFile() {
     var bookFile = document.getElementById('bookFile').value;
     if(bookFile == null || bookFile == undefined || bookFile == '') {
       alert('bookFile is required');

@@ -85,7 +85,7 @@ if (isset($_GET['msg'])) {
                                 <td class="w-25"></td>
                                 <td class="w-25">File</td>
                                 <td class="w-25">
-                                    <input type="file" id="bookFile" name="bookFile" value="" onblur="validateBookFile()" required />
+                                    <input type="file" id="bookFile" name="bookFile" value="" onblur="validateBookFile()" accept=".pdf" required />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>

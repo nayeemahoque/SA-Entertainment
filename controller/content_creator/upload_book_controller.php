@@ -39,7 +39,8 @@ if (isset($_FILES['bookFile'])) {
     $ext = strtolower(pathinfo($_FILES['bookFile']['name'], PATHINFO_EXTENSION));
 
     if ($ext != "pdf") {
-        echo "Only .pdf files are allowed.";
+        header('location: ../../view/content_creator/upload_book.php?err=only pdf file allowed');
+        return;
     }
 
     $target_dir = "../../assets/content_creator/uploads/books/";
@@ -55,7 +56,7 @@ $status = insertBook($book);
 
 if($status)
         {
-            header("Location: ../../view/content_creator/home.php");
+            header("Location: ../../view/content_creator/uploaded_book.php");
         }
         else 
         {

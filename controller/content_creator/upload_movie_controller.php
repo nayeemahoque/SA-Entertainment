@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . '/../../model/content_creator/upload_book_model.php');
+require_once(__DIR__ . '/../../model/content_creator/upload_movie_model.php');
 
 session_start();
 
@@ -35,23 +35,23 @@ if (isset($_POST['isOpenForGenSub'])) {
     $isOpenForGenSub = $_POST['isOpenForGenSub'];
 }
 
-if (isset($_FILES['bookFile'])) {
-    $ext = strtolower(pathinfo($_FILES['bookFile']['name'], PATHINFO_EXTENSION));
+if (isset($_FILES['movieFile'])) {
+    $ext = strtolower(pathinfo($_FILES['movieFile']['name'], PATHINFO_EXTENSION));
 
-    if ($ext != "pdf") {
-        echo "Only .pdf files are allowed.";
+    if ($ext != "mp4") {
+        echo "Only .mp4 files are allowed.";
     }
 
-    $target_dir = "../../assets/content_creator/uploads/books/";
-    $target_file = $target_dir . $_SESSION['userEmail'] . "_" . $title . ".pdf";
-    $src = $_FILES['bookFile']['tmp_name'];
+    $target_dir = "../../assets/content_creator/uploads/movies/";
+    $target_file = $target_dir . $_SESSION['userEmail'] . "_" . $title . ".mp4";
+    $src = $_FILES['movieFile']['tmp_name'];
 
     move_uploaded_file($src, $target_file);
     $file = $target_dir . $_SESSION['userEmail'] . "_" . $title;
 }
 
-$book = ['title' => $title, 'author' => $author, 'genre' => $genre, 'file' => $file, 'isOpenForGenSub' => $isOpenForGenSub, 'uploadedBy' => $uploadedBy, 'uploadedAt' => $uploadedAt];
-$status = insertBook($book);
+$movie = ['title' => $title, 'author' => $author, 'genre' => $genre, 'file' => $file, 'isOpenForGenSub' => $isOpenForGenSub, 'uploadedBy' => $uploadedBy, 'uploadedAt' => $uploadedAt];
+$status = insertMovie($movie);
 
 if($status)
         {
@@ -59,7 +59,7 @@ if($status)
         }
         else 
         {
-            header('location: ../../view/content_creator/upload_book.php?err=failed');
+            header('location: ../../view/content_creator/upload_movie.php?err=failed');
         }
 
 // if ($status) {

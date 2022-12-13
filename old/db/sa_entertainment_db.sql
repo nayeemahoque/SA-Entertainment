@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2022 at 08:43 PM
+-- Generation Time: Dec 13, 2022 at 01:36 PM
 -- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,7 +46,12 @@ INSERT INTO `book` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `Fil
 ('test book 2', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:00pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 2', 'y'),
 ('test book 3', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:10pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 3', 'y'),
 ('test book 4', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:47pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 4', 'y'),
-('test book 5', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 5', 'y');
+('test book 5', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 5', 'y'),
+('test', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test', 'y'),
+('test7', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test7', 'y'),
+('jjj', 'kkk', 'kkk', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_jjj', 'y'),
+('something', 'sAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_something', 'y'),
+('book', 'bookAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_book', 'n');
 
 -- --------------------------------------------------------
 
@@ -144,15 +149,22 @@ CREATE TABLE `genre` (
 --
 
 CREATE TABLE `movie` (
-  `ID` int(4) NOT NULL,
-  `Title` varchar(60) NOT NULL,
-  `ReleaseDate` datetime NOT NULL,
-  `File` varchar(80) NOT NULL,
-  `GenreId` int(4) NOT NULL,
-  `UploadedBy` int(4) NOT NULL,
-  `UploadedAt` datetime NOT NULL,
-  `IsOpenForGenSub` bit(1) NOT NULL
+  `Title` varchar(100) NOT NULL,
+  `Author` varchar(100) NOT NULL,
+  `Genre` varchar(100) NOT NULL,
+  `UploadedBy` varchar(100) NOT NULL,
+  `UploadedAt` varchar(100) NOT NULL,
+  `File` varchar(160) NOT NULL,
+  `IsOpenForGenSub` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `movie`
+--
+
+INSERT INTO `movie` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`) VALUES
+('', '', '', '', '', '', ''),
+('testmovie', 'testauthor', 'testgenre', 'aneen@gmail.com', '13-Dec-2022', '', 'n');
 
 -- --------------------------------------------------------
 
@@ -387,7 +399,7 @@ INSERT INTO `user` (`Email`, `Name`, `Password`, `Gender`, `Biography`, `DOB`, `
 ('rezaul@gmail.com', 'Md Rezaul', '123123', 'Male', '     Traveler                                                               ', '1988-11-27', '../../assets/content_creator/uploads/profile_pictures/rezaul@gmail.com', 'content_creator'),
 ('sadia@gmail.com', 'Sadia Afrin', '12345', 'Female', '                                                                        Chairperson\r\nIEEE AIUB SB                                                                                                                      ', '2000-02-02', '../../assets/general_subscriber/uploads/profile_pictures/sadia@gmail.com', 'general_subscriber'),
 ('tiham@gmail.com', 'Tiham', '1234567', 'Male', '', '2000-12-06', '', 'general_subscriber'),
-('tripty@gmail.com', 'mim', '123321', 'Female', '                             mim mim                               ', '2000-12-12', '../../assets/content_creator/uploads/profile_pictures/tripty@gmail.com', 'content_creator');
+('tripty@gmail.com', 'mim', '123321', 'Female', '                                                         jjjj                                                             ', '2000-12-12', '../../assets/content_creator/uploads/profile_pictures/tripty@gmail.com', 'content_creator');
 
 --
 -- Indexes for dumped tables
@@ -433,12 +445,6 @@ ALTER TABLE `game_list`
 -- Indexes for table `genre`
 --
 ALTER TABLE `genre`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `movie`
---
-ALTER TABLE `movie`
   ADD PRIMARY KEY (`ID`);
 
 --

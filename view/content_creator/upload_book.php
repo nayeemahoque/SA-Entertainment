@@ -22,6 +22,7 @@ if (isset($_GET['msg'])) {
 <head>
     <title>Content Creator | Upload Book</title>
     <link rel="stylesheet" href="../../assets/style.css">
+    <script src="../../script/content_creator/upload_book.js"></script>
 </head>
 
 <body>
@@ -60,7 +61,7 @@ if (isset($_GET['msg'])) {
                                 <td class="w-25"></td>
                                 <td class="w-25">Title</td>
                                 <td class="w-25">
-                                    <input type="text" id="title" name="title" value="" required />
+                                    <input type="text" id="title" name="title" value="" onblur="validateTitle()" required />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>
@@ -68,7 +69,7 @@ if (isset($_GET['msg'])) {
                                 <td class="w-25"></td>
                                 <td class="w-25">Author</td>
                                 <td class="w-25">
-                                    <input type="text" id="author" name="author" value="" required />
+                                    <input type="text" id="author" name="author" value="" onblur="validateAuthor()" required />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>
@@ -76,7 +77,7 @@ if (isset($_GET['msg'])) {
                                 <td class="w-25"></td>
                                 <td class="w-25">Genre</td>
                                 <td class="w-25">
-                                    <input type="text" id="genre" name="genre" value="" required />
+                                    <input type="text" id="genre" name="genre" value="" onblur="validateGenre()" required />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>
@@ -84,7 +85,7 @@ if (isset($_GET['msg'])) {
                                 <td class="w-25"></td>
                                 <td class="w-25">File</td>
                                 <td class="w-25">
-                                    <input type="file" id="bookFile" name="bookFile" value="" required />
+                                    <input type="file" id="bookFile" name="bookFile" value="" onblur="validateBookFile()" required />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>

@@ -5,9 +5,9 @@
 <html>
 
 <head>
-  <title>Paid Subscriber Registration</title>
+  <title>Admin Registration</title>
   <link rel="stylesheet" href="../../assets/style.css">
-  <script src="../../script/paid_subscriber/registration.js"></script>
+  <script src="../../script/admin/registration.js"></script>
 </head>
 
 <body>
@@ -28,9 +28,9 @@
       <td class="w-20"></td>
       <td class="w-15"></td>
       <td class="w-30">
-        <form id="registration_form" method="post" action="../../controller/paid_subscriber/registration_controller.php">
+        <form id="registration_form" method="post" action="../../controller/admin/registration_controller.php">
           <fieldset>
-            <legend>PAID SUBSCRIBER REGISTRATION</legend>
+            <legend>ADMIN REGISTRATION</legend>
             <table>
               <tr>
                 <td>Name </td>
@@ -114,5 +114,4 @@
         </tr>
     </table>
 </footer>
-
 </html>

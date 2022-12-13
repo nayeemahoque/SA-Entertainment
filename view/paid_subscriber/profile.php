@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once(__DIR__ . '/../../controller/paid_subscriber/profile_controller.php');
 
 if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
     header('location: ../../index.php?err=invalid_request');
@@ -8,12 +8,14 @@ if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
 if ($_SESSION['userType'] != 'paid_subscriber') {
     header('location: ../../index.php?err=invalid_request');
 }
+
+$profileData = getProfileData();
 ?>
 
 <html>
 
 <head>
-    <title>Paid Subscriber Home</title>
+    <title>Paid Subscriber | Profile</title>
     <link rel="stylesheet" href="../../assets/style.css">
 </head>
 
@@ -34,15 +36,15 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
                         Settings
                     </span>
                 </a>
-                <a href="share_snap.php">
-                    <span class="top-menu-item">
-                        Snap!
-                    </span>
-                </a>
                 <a href="profile.php">
                     <span class="top-menu-item">
                         My Profile
                     </span>
+                <a href="edit_profile.php">
+                    <span class="top-menu-item">
+                        Edit Profile
+                    </span>
+                </a>
                 </a>
                 <form method="post" action="../../controller/logout_controller.php">
                     <input type="submit" name="logoutSubmit" value="Log Out" />
@@ -50,75 +52,67 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
             </td>
         </tr>
         <tr>
-            <td class="w-20">
-                <div class="menu-tile bg-color-gray">
-                    <a href="book.php">
-                        <h2>
-                            Books
-                        </h2>
-                    </a>
-                </div>
+        <td rowspan="5" class="w-20">
+                <?php if ($profileData['Picture'] == "") {
+                ?>
+                    <img src="../../assets/common/user.jpg" class="profile-picture" alt="Profile Picture">
+                <?php
+                } else {
+                ?>
+                    <img src="<?php echo $profileData['Picture'] . ".jpg"; ?>" class="profile-picture" alt="Profile Picture">
+                <?php
+                } ?>
             </td>
+            <td class="w-20"></td>
+            <td class="w-20">Name</td>
             <td class="w-20">
-                <div class="menu-tile bg-color-skyblue">
-                    <a href="movie.php">
-                        <h2>
-                            Movies
-                        </h2>
-                    </a>
-                </div>
+                <?php echo $profileData['Name']; ?>
             </td>
-            <td class="w-20">
-                <div class="menu-tile bg-color-gray">
-                    <a href="music.php">
-                        <h2>
-                            Music
-                        </h2>
-                    </a>
-                </div>
-            </td>
-            <td class="w-20">
-                <div class="menu-tile bg-color-skyblue">
-                    <a href="tv_series.php">
-                        <h2>
-                            TV Series
-                        </h2>
-                    </a>
-                </div>
-            </td>
-            <td class="w-20">
-                <div class="menu-tile bg-color-gray">
-                    <a href="game.php">
-                        <h2>
-                            Games
-                        </h2>
-                    </a>
-                </div>
-            </td>
+            <td class="w-20"></td>
         </tr>
         <tr>
-            <td colspan="5">
-                <h1 align="center">
-                    What's new!!
-                </h1>
+            <td class="w-20"></td>
+            <td class="w-20">
+                <hr class="new1">Biography
             </td>
+            <td class="w-20">
+                <hr class="new1">
+                <?php echo $profileData['Biography']; ?>
+            </td>
+            <td class="w-20"></td>
         </tr>
         <tr>
-            <td width="16%">
-                <img height="20%" width="100%" src="../assets/paid_subscriber/images/books.jpg" alt="book">
+            <td class="w-20"></td>
+            <td class="w-20">
+                <hr class="new1">Gender
             </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/paid_subscriber/images/movie.jpg" alt="movie">
+            <td class="w-20">
+                <hr class="new1">
+                <?php echo $profileData['Gender']; ?>
             </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/paid_subscriber/images/music.jpg" alt="music">
+            <td class="w-20"></td>
+        </tr>
+        <tr>
+            <td class="w-20"></td>
+            <td class="w-20">
+                <hr class="new1">Email
             </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/_subscriber/images/series.jpg" alt="series">
+            <td class="w-20">
+                <hr class="new1">
+                <?php echo $profileData['Email']; ?>
             </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/general_subscriber/images/game.jpg" alt="game">
+            <td class="w-20"></td>
+        </tr>
+        <tr>
+            <td class="w-20"></td>
+            <td class="w-20">
+                <hr class="new1">DOB
             </td>
+            <td class="w-20">
+                <hr class="new1">
+                <?php echo $profileData['DOB']; ?>
+            </td>
+            <td class="w-20"></td>
         </tr>
     </table>
 </body>
@@ -146,5 +140,6 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
             <td class="w-20"></td>
         </tr>
     </table>
+</footer>
 
 </html>

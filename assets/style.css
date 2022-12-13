@@ -21,7 +21,7 @@ body {
   } */
 
 .container-table{
-    background-color: #A4B494;
+    background-color: hsl(90, 17%, 98%);
     width: 100%;
     height: 90%;
     border: 1;
@@ -37,7 +37,7 @@ body {
 }
 
 .footer-bar{
-    background-color: #34252F;
+    background-color: #3B3131;
     width: 100%;
     height: 10%;
 }

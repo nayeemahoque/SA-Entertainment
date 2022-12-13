@@ -79,7 +79,9 @@ $movie = getUploadedMovies();
                 <td class="w-20">
                     <?php echo $uploadedAt ?>
                 </td>
-                <td class="w-20"></td>
+                <td class="w-20">
+                    <a href="../../controller/content_creator/delete_movie_controller.php?title=<?php echo $title ?>">Delete</a>
+                </td>
             </tr>
         <?php
         }

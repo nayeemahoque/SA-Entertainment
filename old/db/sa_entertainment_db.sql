@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 02:14 PM
+-- Generation Time: Dec 13, 2022 at 05:46 PM
 -- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,24 +34,25 @@ CREATE TABLE `book` (
   `UploadedBy` varchar(100) NOT NULL,
   `UploadedAt` varchar(40) NOT NULL,
   `File` varchar(160) NOT NULL,
-  `IsOpenForGenSub` varchar(1) NOT NULL
+  `IsOpenForGenSub` varchar(1) NOT NULL,
+  `IsActive` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`) VALUES
-('test book', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 06:52pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book', 'y'),
-('test book 2', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:00pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 2', 'y'),
-('test book 3', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:10pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 3', 'y'),
-('test book 4', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:47pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 4', 'y'),
-('test book 5', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 5', 'y'),
-('test', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test', 'y'),
-('test7', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test7', 'y'),
-('jjj', 'kkk', 'kkk', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_jjj', 'y'),
-('something', 'sAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_something', 'y'),
-('book', 'bookAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_book', 'n');
+INSERT INTO `book` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`, `IsActive`) VALUES
+('test book', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 06:52pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book', 'y', ''),
+('test book 2', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:00pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 2', 'y', ''),
+('test book 3', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:10pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 3', 'y', ''),
+('test book 4', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:47pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 4', 'y', ''),
+('test book 5', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 5', 'y', ''),
+('test', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test', 'y', ''),
+('test7', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test7', 'y', ''),
+('jjj', 'kkk', 'kkk', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_jjj', 'y', ''),
+('something', 'sAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_something', 'y', ''),
+('book', 'bookAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_book', 'n', '');
 
 -- --------------------------------------------------------
 
@@ -102,8 +103,17 @@ CREATE TABLE `game` (
   `Genre` varchar(100) NOT NULL,
   `UploadedBy` varchar(100) NOT NULL,
   `UploadedAt` varchar(100) NOT NULL,
-  `IsOpenForGenSub` varchar(1) NOT NULL
+  `IsOpenForGenSub` varchar(1) NOT NULL,
+  `IsActive` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `game`
+--
+
+INSERT INTO `game` (`Title`, `File`, `Genre`, `UploadedBy`, `UploadedAt`, `IsOpenForGenSub`, `IsActive`) VALUES
+('test', '../../assets/content_creator/uploads/games/aneen@gmail.com_test', 'test', 'aneen@gmail.com', '13-Dec-2022', 'y', ''),
+('test', '../../assets/content_creator/uploads/games/aneen@gmail.com_test', 'test', 'aneen@gmail.com', '13-Dec-2022', 'y', '');
 
 -- --------------------------------------------------------
 
@@ -143,16 +153,17 @@ CREATE TABLE `movie` (
   `UploadedBy` varchar(100) NOT NULL,
   `UploadedAt` varchar(100) NOT NULL,
   `File` varchar(160) NOT NULL,
-  `IsOpenForGenSub` varchar(1) NOT NULL
+  `IsOpenForGenSub` varchar(1) NOT NULL,
+  `IsActive` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `movie`
 --
 
-INSERT INTO `movie` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`) VALUES
-('', '', '', '', '', '', ''),
-('testmovie', 'testauthor', 'testgenre', 'aneen@gmail.com', '13-Dec-2022', '', 'n');
+INSERT INTO `movie` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`, `IsActive`) VALUES
+('', '', '', '', '', '', '', ''),
+('testmovie', 'testauthor', 'testgenre', 'aneen@gmail.com', '13-Dec-2022', '', 'n', '');
 
 -- --------------------------------------------------------
 
@@ -189,12 +200,21 @@ CREATE TABLE `music` (
   `Title` varchar(100) NOT NULL,
   `Artist` varchar(100) NOT NULL,
   `Genre` varchar(100) NOT NULL,
-  `Language` varchar(100) NOT NULL,
   `UploadedBy` varchar(100) NOT NULL,
   `UploadedAt` varchar(100) NOT NULL,
   `File` varchar(160) NOT NULL,
-  `IsOpenForGenSub` varchar(1) NOT NULL
+  `IsOpenForGenSub` varchar(1) NOT NULL,
+  `IsActive` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `music`
+--
+
+INSERT INTO `music` (`Title`, `Artist`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`, `IsActive`) VALUES
+('test', 'test', 'test', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_test', 'y', ''),
+('test', 'test', 'test', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_test', 'y', ''),
+('jjj', 'jjj', 'jjj', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_jjj', 'y', '');
 
 -- --------------------------------------------------------
 
@@ -307,13 +327,20 @@ CREATE TABLE `promoted_series` (
 
 CREATE TABLE `series` (
   `Title` varchar(100) NOT NULL,
-  `ReleaseDate` varchar(100) NOT NULL,
   `Genre` varchar(100) NOT NULL,
   `File` varchar(160) NOT NULL,
   `UploadedBy` varchar(100) NOT NULL,
   `UploadedAt` varchar(100) NOT NULL,
-  `IsOpenForGenSub` varchar(1) NOT NULL
+  `IsOpenForGenSub` varchar(1) NOT NULL,
+  `IsActive` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `series`
+--
+
+INSERT INTO `series` (`Title`, `Genre`, `File`, `UploadedBy`, `UploadedAt`, `IsOpenForGenSub`, `IsActive`) VALUES
+('test', 'test', '../../assets/content_creator/uploads/tvseries/aneen@gmail.com_test', 'aneen@gmail.com', '13-Dec-2022', 'y', '');
 
 -- --------------------------------------------------------
 

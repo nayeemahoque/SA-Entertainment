@@ -10,10 +10,10 @@ function validateTitle() {
     }
 }
 
-function validateAuthor() {
-  var author = document.getElementById('author').value;
+function validateArtist() {
+  var author = document.getElementById('artist').value;
   if(author == null || author == undefined || author == '') {
-    alert('Author is required');
+    alert('Artist is required');
     return;
   }
 }
@@ -26,10 +26,10 @@ function validateGenre() {
     }
 }
 
-function validateBookFile() {
-    var bookFile = document.getElementById('bookFile').value;
-    if(bookFile == null || bookFile == undefined || bookFile == '') {
-      alert('bookFile is required');
+function validateMusicFile() {
+    var musicFile = document.getElementById('musicFile').value;
+    if(musicFile == null || musicFile == undefined || musicFile == '') {
+      alert('musicFile is required');
       return;
     }
 }

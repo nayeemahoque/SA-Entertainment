@@ -27,9 +27,9 @@ function validateGenre() {
 }
 
 function validateMovieFile() {
-    var bookFile = document.getElementById('bookFile').value;
-    if(bookFile == null || bookFile == undefined || bookFile == '') {
-      alert('bookFile is required');
+    var movieFile = document.getElementById('movieFile').value;
+    if(movieFile == null || movieFile == undefined || movieFile == '') {
+      alert('movieFile is required');
       return;
     }
 }

@@ -1,10 +1,10 @@
 <?php
 require_once(__DIR__ . '/../db_conn.php');
 
-function getMusicsByUserEmail($email)
+function getGenSubBooks()
 {
     $connection = getConnection();
-    $sqlQuery = "SELECT * FROM music WHERE UploadedBy = '{$email}';";
+    $sqlQuery = "SELECT * FROM book WHERE IsOpenForGenSub = 'y';";
 
     $result = mysqli_query($connection, $sqlQuery);
     mysqli_close($connection);

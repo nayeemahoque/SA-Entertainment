@@ -67,9 +67,9 @@ if (isset($_GET['msg'])) {
                             </tr>
                             <tr>
                                 <td class="w-25"></td>
-                                <td class="w-25">Author</td>
+                                <td class="w-25">Artist</td>
                                 <td class="w-25">
-                                    <input type="text" id="author" name="author" value="" onblur="validateAuthor()" required />
+                                    <input type="text" id="artist" name="artist" value="" onblur="validateArtist()" required />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>
@@ -85,7 +85,7 @@ if (isset($_GET['msg'])) {
                                 <td class="w-25"></td>
                                 <td class="w-25">File</td>
                                 <td class="w-25">
-                                    <input type="file" id="bookFile" name="bookFile" value="" onblur="validateBookFile()" required />
+                                    <input type="file" id="musicFile" name="musicFile" value="" onblur="validateMusicFile()" accept=".mp3" required />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>
@@ -102,7 +102,7 @@ if (isset($_GET['msg'])) {
                                 <td class="w-25"></td>
                                 <td class="w-25"></td>
                                 <td class="w-25">
-                                    <input type="submit" id="submit" name="submit" value="Upload Movie" />
+                                    <input type="submit" id="submit" name="submit" value="Upload Music" />
                                 </td>
                                 <td class="w-25"></td>
                             </tr>

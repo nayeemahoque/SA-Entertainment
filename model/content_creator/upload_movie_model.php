@@ -12,4 +12,3 @@ function insertMovie($movie)
     return $status;
 }
 ?>
-<!-- . -->

@@ -8,7 +8,13 @@ if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
 if ($_SESSION['userType'] != 'content_creator') {
     header('location: ../../index.php?err=invalid_request');
 }
+if (isset($_GET['err'])) {
+    echo $_GET['err'];
+}
 
+if (isset($_GET['msg'])) {
+    echo $_GET['msg'];
+}
 $music = getUploadedMusics();
 ?>
 

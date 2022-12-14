@@ -7,12 +7,7 @@ body {
     margin: 0;
 }
 
- /* @keyframes example {
-    0%   {background-color: #E5E1EE;}
-    25%  {background-color: #DFFDFF;}
-    50%  {background-color: #90BEDE;}
-    100% {background-color: #90F3FF;}
-  }  */
+
   /* @keyframes example {
     0%   {background-color: rgb(176, 112, 161);}
     25%  {background-color: rgb(220, 220, 163);}
@@ -21,7 +16,7 @@ body {
   } */
 
 .container-table{
-    background-color: hsl(90, 17%, 98%);
+    background-color:#9dd4f5;
     width: 100%;
     height: 90%;
     border: 1;
@@ -31,13 +26,13 @@ body {
 }
 
 .top-menu-bar{
-    background-color: #34252F;
+    background-color: #797779;
     width: 100%;
     height: 10%;
 }
 
 .footer-bar{
-    background-color: #3B3131;
+    background-color: #686767;
     width: 100%;
     height: 10%;
 }

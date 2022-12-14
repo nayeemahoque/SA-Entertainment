@@ -75,7 +75,8 @@ $books = getGeneralSubscriberBooks();
                     <?php echo $uploadedAt ?>
                 </td>
                 <td class="w-20">
-                    <a href="<?php echo $filePath . ".pdf" ?>">Download</a>
+                    <a href="<?php echo $filePath . ".pdf" ?>">Download</a>&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="Add to Favourite" onclick="addToFavAjax('<?php echo $title ?>', '<?php echo $_SESSION['userEmail'] ?>')">
                 </td>
             </tr>
         <?php
@@ -108,5 +109,35 @@ $books = getGeneralSubscriberBooks();
         </tr>
     </table>
 </footer>
+<script>
+    function addToFavAjax(title, email) {
+        if (!title) {
+            alert('Title cannot be empty');
+            return;
+        }
+
+        if (!email) {
+            alert('Email cannot be empty');
+            return;
+        }
+
+        let fav = {
+            'title': title,
+            'email': email
+        };
+
+        let data = JSON.stringify(fav);
+
+        let xhttp = new XMLHttpRequest();
+        xhttp.open('POST', '../../controller/general_subscriber/add_fav_book_controller.php?', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send('json=' + data);
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+            }
+        }
+    }
+</script>
 
 </html>

@@ -92,6 +92,53 @@ if ($_SESSION['userType'] != 'general_subscriber') {
             </td>
         </tr>
         <tr>
+            <td class="w-20">
+                <div class="menu-tile bg-color-gray">
+                    <a href="fav_book.php">
+                        <h2>
+                            My Favorite Books
+                        </h2>
+                    </a>
+                </div>
+            </td>
+            <td class="w-20">
+                <div class="menu-tile bg-color-skyblue">
+                    <a href="fav_movie.php">
+                        <h2>
+                            My Favorite Movies
+                        </h2>
+                    </a>
+                </div>
+            </td>
+            <td class="w-20">
+                <div class="menu-tile bg-color-gray">
+                    <a href="fav_music.php">
+                        <h2>
+                            My Favorite Music
+                        </h2>
+                    </a>
+                </div>
+            </td>
+            <td class="w-20">
+                <div class="menu-tile bg-color-skyblue">
+                    <a href="fav_tv_series.php">
+                        <h2>
+                            My Favorite TV Series
+                        </h2>
+                    </a>
+                </div>
+            </td>
+            <td class="w-20">
+                <div class="menu-tile bg-color-gray">
+                    <a href="fav_game.php">
+                        <h2>
+                            My Favorite Games
+                        </h2>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
             <td colspan="5">
                 <h1 align="center">
                     What's new!!

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 06:47 PM
+-- Generation Time: Dec 13, 2022 at 09:53 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -43,17 +43,16 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`, `IsActive`) VALUES
-('test book', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 06:52pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book', 'y', 'p'),
-('test book 2', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:00pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 2', 'y', 'p'),
-('test book 3', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:10pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 3', 'y', 'p'),
-('test book 4', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:47pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 4', 'y', 'p'),
-('test book 5', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 5', 'y', 'p'),
-('test', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test', 'y', 'p'),
-('test7', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test7', 'y', 'p'),
-('jjj', 'kkk', 'kkk', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_jjj', 'y', 'p'),
-('something', 'sAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_something', 'y', 'p'),
-('book', 'bookAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_book', 'n', 'p'),
-('test book xx', 'test author', 'test genre', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book xx', 'y', 'p');
+('test book', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 06:52pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book', 'y', 'y'),
+('test book 2', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:00pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 2', 'y', 'y'),
+('test book 3', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:10pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 3', 'y', 'y'),
+('test book 4', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022 07:47pm', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 4', 'y', 'y'),
+('test book 5', 'test author', 'test genre', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test book 5', 'y', 'y'),
+('test', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test', 'y', 'y'),
+('test7', 'test', 'test', 'tripty@gmail.com', '12-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_test7', 'y', 'y'),
+('jjj', 'kkk', 'kkk', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_jjj', 'y', 'y'),
+('something', 'sAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_something', 'y', 'y'),
+('book', 'bookAuthor', 'horror', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/books/tripty@gmail.com_book', 'n', 'y');
 
 -- --------------------------------------------------------
 
@@ -75,10 +74,19 @@ CREATE TABLE `book_history` (
 --
 
 CREATE TABLE `book_list` (
-  `ID` int(4) NOT NULL,
-  `BookId` int(4) NOT NULL,
-  `UserId` int(4) NOT NULL
+  `BookTitle` varchar(100) NOT NULL,
+  `UserEmail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book_list`
+--
+
+INSERT INTO `book_list` (`BookTitle`, `UserEmail`) VALUES
+('', ''),
+('test book', 'nayeema.mim03@gmail.com'),
+('test book 3', 'nayeema.mim03@gmail.com'),
+('test book 5', 'nayeema.mim03@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -113,8 +121,9 @@ CREATE TABLE `game` (
 --
 
 INSERT INTO `game` (`Title`, `File`, `Genre`, `UploadedBy`, `UploadedAt`, `IsOpenForGenSub`, `IsActive`) VALUES
-('test', '../../assets/content_creator/uploads/games/aneen@gmail.com_test', 'test', 'aneen@gmail.com', '13-Dec-2022', 'y', 'p'),
-('test', '../../assets/content_creator/uploads/games/aneen@gmail.com_test', 'test', 'aneen@gmail.com', '13-Dec-2022', 'y', 'p');
+('test', '../../assets/content_creator/uploads/games/aneen@gmail.com_test', 'test', 'aneen@gmail.com', '13-Dec-2022', 'y', 'y'),
+('test', '../../assets/content_creator/uploads/games/aneen@gmail.com_test', 'test', 'aneen@gmail.com', '13-Dec-2022', 'y', 'y'),
+('game 1', '../../assets/content_creator/uploads/games/tripty@gmail.com_game 1', 'tripty', 'tripty@gmail.com', '13-Dec-2022', 'y', 'y');
 
 -- --------------------------------------------------------
 
@@ -136,10 +145,16 @@ CREATE TABLE `game_history` (
 --
 
 CREATE TABLE `game_list` (
-  `ID` int(4) NOT NULL,
-  `GameId` int(4) NOT NULL,
-  `UserId` int(4) NOT NULL
+  `GameTitle` varchar(100) NOT NULL,
+  `UserEmail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `game_list`
+--
+
+INSERT INTO `game_list` (`GameTitle`, `UserEmail`) VALUES
+('test', 'nayeema.mim03@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -163,8 +178,9 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`Title`, `Author`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`, `IsActive`) VALUES
-('', '', '', '', '', '', '', 'p'),
-('testmovie', 'testauthor', 'testgenre', 'aneen@gmail.com', '13-Dec-2022', '', 'n', 'p');
+('', '', '', '', '', '', '', 'y'),
+('testmovie', 'testauthor', 'testgenre', 'aneen@gmail.com', '13-Dec-2022', '', 'n', 'y'),
+('movie 1', 'test author', 'test genre', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/movies/tripty@gmail.com_movie 1', 'y', 'y');
 
 -- --------------------------------------------------------
 
@@ -186,10 +202,16 @@ CREATE TABLE `movie_history` (
 --
 
 CREATE TABLE `movie_list` (
-  `ID` int(4) NOT NULL,
-  `MovieId` int(4) NOT NULL,
-  `UserId` int(4) NOT NULL
+  `MovieTitle` varchar(100) NOT NULL,
+  `UserEmail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `movie_list`
+--
+
+INSERT INTO `movie_list` (`MovieTitle`, `UserEmail`) VALUES
+('movie 1', 'nayeema.mim03@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -213,9 +235,10 @@ CREATE TABLE `music` (
 --
 
 INSERT INTO `music` (`Title`, `Artist`, `Genre`, `UploadedBy`, `UploadedAt`, `File`, `IsOpenForGenSub`, `IsActive`) VALUES
-('test', 'test', 'test', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_test', 'y', 'p'),
-('test', 'test', 'test', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_test', 'y', 'p'),
-('jjj', 'jjj', 'jjj', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_jjj', 'y', 'p');
+('test', 'test', 'test', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_test', 'y', 'y'),
+('test', 'test', 'test', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_test', 'y', 'y'),
+('jjj', 'jjj', 'jjj', 'aneen@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/aneen@gmail.com_jjj', 'y', 'y'),
+('music 1', 'tripty', 'rock', 'tripty@gmail.com', '13-Dec-2022', '../../assets/content_creator/uploads/musics/tripty@gmail.com_music 1', 'y', 'y');
 
 -- --------------------------------------------------------
 
@@ -237,10 +260,16 @@ CREATE TABLE `music_history` (
 --
 
 CREATE TABLE `music_list` (
-  `ID` int(4) NOT NULL,
-  `MusicId` int(4) NOT NULL,
-  `UserId` int(4) NOT NULL
+  `MusicTitle` varchar(100) NOT NULL,
+  `UserEmail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `music_list`
+--
+
+INSERT INTO `music_list` (`MusicTitle`, `UserEmail`) VALUES
+('test', 'nayeema.mim03@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -341,7 +370,8 @@ CREATE TABLE `series` (
 --
 
 INSERT INTO `series` (`Title`, `Genre`, `File`, `UploadedBy`, `UploadedAt`, `IsOpenForGenSub`, `IsActive`) VALUES
-('test', 'test', '../../assets/content_creator/uploads/tvseries/aneen@gmail.com_test', 'aneen@gmail.com', '13-Dec-2022', 'y', 'p');
+('test', 'test', '../../assets/content_creator/uploads/tvseries/aneen@gmail.com_test', 'aneen@gmail.com', '13-Dec-2022', 'y', 'y'),
+('', '', '', 'tripty@gmail.com', '13-Dec-2022', '', 'y');
 
 -- --------------------------------------------------------
 
@@ -363,10 +393,16 @@ CREATE TABLE `series_history` (
 --
 
 CREATE TABLE `series_list` (
-  `ID` int(4) NOT NULL,
-  `SeriesId` int(4) NOT NULL,
-  `UserId` int(4) NOT NULL
+  `SeriesTitle` varchar(100) NOT NULL,
+  `UserEmail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `series_list`
+--
+
+INSERT INTO `series_list` (`SeriesTitle`, `UserEmail`) VALUES
+('test', 'nayeema.mim03@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -407,7 +443,7 @@ INSERT INTO `user` (`Email`, `Name`, `Password`, `Gender`, `Biography`, `DOB`, `
 ('cat@gmail.com', 'cat', '151515', 'Male', '                                                                                                                                                                                                                                                                                                                                                                                                                                                     I am cat                                                                                                                                                                                                                                                                                                                                                                                                                                                      ', '1999-11-27', '../../assets/general_subscriber/uploads/profile_pictures/cat@gmail.com', 'general_subscriber'),
 ('jesmin@gmail.com', 'jesmin', '1234567', 'Female', '', '2000-11-27', '', 'general_subscriber'),
 ('man@gmail.com', 'man', '121212', 'Male', '', '2022-11-28', '', 'general_subscriber'),
-('nayeema.mim03@gmail.com', 'nayeema', '1234', 'Female', '', '2000-12-05', '', 'general_subscriber'),
+('nayeema.mim03@gmail.com', 'Nayeema Hoque Mim', '1234', 'Female', 'Stubborn', '2000-12-05', '../../assets/general_subscriber/uploads/profile_pictures/nayeema.mim03@gmail.com', 'general_subscriber'),
 ('ony@gmail.com', 'ony', '12356', 'Female', '', '2000-11-27', '', 'general_subscriber'),
 ('rafi@gmail.com', 'rafi', '123123', 'Male', '', '2000-11-27', '', 'general_subscriber'),
 ('rezaul@gmail.com', 'Md Rezaul', '123123', 'Male', '     Traveler                                                               ', '1988-11-27', '../../assets/content_creator/uploads/profile_pictures/rezaul@gmail.com', 'content_creator'),
@@ -426,12 +462,6 @@ ALTER TABLE `book_history`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `book_list`
---
-ALTER TABLE `book_list`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `current_mood`
 --
 ALTER TABLE `current_mood`
@@ -444,33 +474,15 @@ ALTER TABLE `game_history`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `game_list`
---
-ALTER TABLE `game_list`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `movie_history`
 --
 ALTER TABLE `movie_history`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `movie_list`
---
-ALTER TABLE `movie_list`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `music_history`
 --
 ALTER TABLE `music_history`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `music_list`
---
-ALTER TABLE `music_list`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -513,12 +525,6 @@ ALTER TABLE `promoted_series`
 -- Indexes for table `series_history`
 --
 ALTER TABLE `series_history`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `series_list`
---
-ALTER TABLE `series_list`
   ADD PRIMARY KEY (`ID`);
 
 --

@@ -51,7 +51,18 @@ body {
     height: 100%;
     width: 100%;
 }
-
+.body{
+    background-color: rosybrown;
+}
+.bg-color-darkgrey{
+    background-color: darkgrey;
+}
+.bg-color-mediumaquamarine{
+    background-color: mediumaquamarine;
+}
+.bg-color-steelblue{
+    background-color: steelblue;
+}
 .bg-color-gray{
     background-color: gray;
 }

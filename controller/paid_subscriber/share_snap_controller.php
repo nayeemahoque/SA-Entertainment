@@ -20,14 +20,14 @@ $isOpenForGenSub = "";
 if (isset($_POST['caption'])) {
     $title = $_POST['caption'];
 }
-if (isset($_FILES['bookFile'])) {
-    $ext = strtolower(pathinfo($_FILES['bookFile']['name'], PATHINFO_EXTENSION));
+if (isset($_FILES['pictureFile'])) {
+    $ext = strtolower(pathinfo($_FILES['pictureFile']['name'], PATHINFO_EXTENSION));
 
-    if ($ext != "pdf") {
-        echo "Only .pdf files are allowed.";
+    if ($ext != "jpg" && $ext != "png") {
+        echo "Only .jpg & png files are allowed.";
     }
 
-    $target_dir = "../../assets/content_creator/uploads/shared_snap/";
+    $target_dir = "../../assets/paid_subscriber/uploads/shared_snap/";
     $target_file = $target_dir . $_SESSION['userEmail'] . "_" . $title . ".jpg , .png";
     $src = $_FILES['pictureFile']['tmp_name'];
 
@@ -38,13 +38,13 @@ if (isset($_FILES['bookFile'])) {
 if (isset($_POST['isOpenForGenSub'])) {
     $isOpenForGenSub = $_POST['isOpenForGenSub'];
 }
-$book = ['title' => $title, 'file' => $file,'uploadedBy' => $uploadedBy, 'uploadedAt' => $uploadedAt, 'isOpenForGenSub' => $isOpenForGenSub];
-$status = insertBook($share_snap);
+$share_snap = ['caption' => $caption, 'file' => $file,'uploadedBy' => $uploadedBy, 'uploadedAt' => $uploadedAt, 'isOpenForGenSub' => $isOpenForGenSub];
+$status = insertSnap($share_snap);
 
 if ($status) {
     header('location: ../../view/paid_subscriber/share_snap.php?msg=success');
 } else {
-    header('location: ../../view/content_creator/upload_book.php?err=failed');
+    header('location: ../../view/paid_subscriber/share_snap.php?err=failed');
 }
 ?>
 

@@ -52,9 +52,17 @@ if (isset($_GET['msg'])) {
                     </form>
                 </td>
             </tr>
-            <tr>
-                <td colspan="5">
-                    <form method="post" action="../../controller/content_creator/upload_book_controller.php" enctype="multipart/form-data">
+            <!-- <tr>
+                <td>
+                    
+                </td>
+            </tr> -->
+            <tr class = "body">
+                <td colspan="5" align="center">
+                        <h2>
+                            Share Snap with world!!
+                        </h2>
+                    <form method="post" action="../../controller/paid_subscriber/share_snap_controller.php" enctype="multipart/form-data">
                     <fieldset>
                         <legend style="color: blue;"><b>SHARE SNAP!!</b></legend>
                         <table class="w-100">

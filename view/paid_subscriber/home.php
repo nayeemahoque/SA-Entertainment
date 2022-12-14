@@ -60,7 +60,7 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
                 </div>
             </td>
             <td class="w-20">
-                <div class="menu-tile bg-color-skyblue">
+                <div class="menu-tile bg-color-mediumaquamarine">
                     <a href="movie.php">
                         <h2>
                             Movies
@@ -78,7 +78,7 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
                 </div>
             </td>
             <td class="w-20">
-                <div class="menu-tile bg-color-skyblue">
+                <div class="menu-tile bg-color-mediumaquamarine">
                     <a href="tv_series.php">
                         <h2>
                             TV Series
@@ -96,16 +96,16 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
                 </div>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td colspan="5">
                 <h1 align="center">
                     What's new!!
                 </h1>
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <td width="16%">
-                <img height="20%" width="100%" src="../assets/paid_subscriber/images/books.jpg" alt="book">
+                <img height="20%" width="100%" src="../../assets/paid_subscriber/images/books.jpg" alt="book">
             </td>
             <td width="16%">
                 <img height="20%" width="100%" src="../../assets/paid_subscriber/images/movie.jpg" alt="movie">
@@ -114,10 +114,10 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
                 <img height="20%" width="100%" src="../../assets/paid_subscriber/images/music.jpg" alt="music">
             </td>
             <td width="16%">
-                <img height="20%" width="100%" src="../../assets/_subscriber/images/series.jpg" alt="series">
+                <img height="20%" width="100%" src="../../assets/paid_subscriber/images/series.jpg" alt="series">
             </td>
             <td width="16%">
-                <img height="20%" width="100%" src="../../assets/general_subscriber/images/game.jpg" alt="game">
+                <img height="20%" width="100%" src="../../assets/paid_subscriber/images/game.jpg" alt="game">
             </td>
         </tr>
     </table>
@@ -146,5 +146,6 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
             <td class="w-20"></td>
         </tr>
     </table>
+</footer>
 
 </html>

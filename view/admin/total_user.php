@@ -1,19 +1,27 @@
 <?php
-session_start();
+require_once(__DIR__ . '/../../controller/admin/total_user_controller.php');
 
 if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
     header('location: ../../index.php?err=invalid_request');
 }
 
-if ($_SESSION['userType'] != 'paid_subscriber') {
+if ($_SESSION['userType'] != 'admin') {
     header('location: ../../index.php?err=invalid_request');
 }
+if (isset($_GET['err'])) {
+    echo $_GET['err'];
+}
+
+if (isset($_GET['msg'])) {
+    echo $_GET['msg'];
+}
+$T_users = getTotalUser();
 ?>
 
 <html>
 
 <head>
-    <title>Paid Subscriber Home</title>
+    <title>Admin | Total User</title>
     <link rel="stylesheet" href="../../assets/style.css">
 </head>
 
@@ -34,11 +42,6 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
                         Settings
                     </span>
                 </a>
-                <a href="share_snap.php">
-                    <span class="top-menu-item">
-                        Snap!
-                    </span>
-                </a>
                 <a href="profile.php">
                     <span class="top-menu-item">
                         My Profile
@@ -53,45 +56,46 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
             <td colspan="5" class="w-20" align="center">
                 <h1>
                     <b>
-                        <u>Welcome To Music Section</u>
+                        <u>All User's Information</u>
                     </b>
                 </h1>
             </td>
         </tr>
-        <tr>
-            <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-darkgrey">
-                    <a href="music_list.php">
-                        <h2>
-                           Music List
-                        </h2>
-                    </a>
-                </div>
-            </td>
+        <tr align="left">   
+            <th class="w-20"><u>Name</u></th>
+            <th class="w-20"><u>Email</u></th>
+            <th class="w-20"><u>Gender</u></th>
+            <th class="w-20"><u>Type</u></th>
         </tr>
-        <tr>
-            <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-steelblue">
-                    <a href="paid_musices.php">
-                        <h2>
-                           Paid Musices
-                        </h2>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-        <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-darkgrey">
-                    <a href="listened_musices.php">
-                        <h2>
-                            Listened Musices
-                        </h2>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        </tr>
+        <!-- <tr>
+        </tr> -->
+       
+        <?php
+        
+        while ($row = mysqli_fetch_assoc($T_users)) {
+            $name = $row['Name'];
+            $email = $row['Email'];
+            $gender = $row['Gender'];
+            $type = $row['Type'];
+        ?>
+            <tr>
+                <td class="w-20">
+                    <?php echo $name ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $email ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $gender ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $type ?>
+                </td>
+            </tr>
+        <?php
+        }
+
+        ?>
     </table>
 </body>
 <footer>

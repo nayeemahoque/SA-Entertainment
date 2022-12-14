@@ -8,6 +8,7 @@ if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
 if ($_SESSION['userType'] != 'admin') {
     header('location: ../../index.php?err=invalid_request');
 }
+
 ?>
 <html>
 
@@ -18,7 +19,7 @@ if ($_SESSION['userType'] != 'admin') {
 
 <body>
     <table class="container-table">
-    <tr class="top-menu-bar">
+        <tr class="top-menu-bar">
             <td class="w-20">
                 <img class="logo" src="../../assets/common/logo.png" alt="Logo" />
             </td>
@@ -44,92 +45,47 @@ if ($_SESSION['userType'] != 'admin') {
             </td>
         </tr>
         <tr>
-        <td width ="16%" class="w-20" align="center">
-        <div class="menu-tile bg-color-gray">
-                    <a href="uploadedFiles.html">
-                        <h2>
-                            Recent Uploades
-                        </h2>
-                    </a>
-                </div>
-            </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #99d98c;">
-                    <a href="totalUser.html">
-                        <h2>
-                            Total User
-                        </h2>
-                    </a>
-                </div>
-            </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color:#76c893;">
-                    <a href="totalGeneralUser.html">
-                        <h2>
-                            Total General User
-                        </h2>
-                    </a>
-                </div>
-            </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #52b69a;">
-                    <a href="totalPaidUser.html">
-                        <h2>
-                            Total Paid User
-                        </h2>
-                    </a>
-                </div>
-            </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #168aad;">
-                    <a href="totalContentCreator.html">
-                        <h2>
-                            Total Content Creater
-                        </h2>
-                    </a>
-                </div>
+            <td colspan="5" class="w-20" align="center">
+                <h1><b>Welcome To Admin Home Page</b></h1>
             </td>
         </tr>
         <tr>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #95d5b2;">
-                    <a href="books-admin.html">
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-darkgrey">
+                    <a href="approved_book.php">
                         <h2>
                             Books
                         </h2>
                     </a>
                 </div>
             </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #74c69d;">
-                    <a href="movies-admin.html">
+        </tr>
+        <tr>
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-steelblue">
+                    <a href="approved_movie.php">
                         <h2>
                             Movies
                         </h2>
                     </a>
                 </div>
             </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #52b788;">
-                    <a href="music-admin.html">
+        </tr>
+        <tr>
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-darkgrey">
+                    <a href="approved_music.php">
                         <h2>
-                            Music
+                            Musics
                         </h2>
                     </a>
                 </div>
             </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #40916c;">
-                    <a href="tvSeries-admin.html">
-                        <h2>
-                            TV Series
-                        </h2>
-                    </a>
-                </div>
-            </td>
-            <td width="16%" align="center">
-                <div style="height: 100%; width: 100%; background-color: #43aa8b;">
-                    <a href="games-admin.html">
+        </tr>
+        <tr>
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-steelblue">
+                    <a href="approved_game.php">
                         <h2>
                             Games
                         </h2>
@@ -137,7 +93,87 @@ if ($_SESSION['userType'] != 'admin') {
                 </div>
             </td>
         </tr>
+        <tr>
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-darkgrey">
+                    <a href="approved_tv_series.php">
+                        <h2>
+                            Tv Series
+                        </h2>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="w-20" align="center">
+                <div class="menu-tile bg-color-darkgrey">
+                    <a href="total_user.php">
+                        <h2>
+                            Total User
+                        </h2>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-steelblue">
+                    <a href="total_content_creator.php">
+                        <h2>
+                            Total Content Creator
+                        </h2>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-darkgrey">
+                    <a href="total_paid_subscriber.php">
+                        <h2>
+                            Total Paid Subscriber
+                        </h2>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="w-20" align="center">
+                <div class="menu-tile bg-color-steelblue">
+                    <a href="total_general_subscriber.php">
+                        <h2>
+                            Total General Subscriber
+                        </h2>
+                    </a>
+                </div>
+            </td>
+        </tr>
     </table>
 </body>
+<footer>
+    <table class="footer-bar">
+        <tr align="center">
+            <td class="w-20"></td>
+            <td class="w-20">
+                <a href="../common/about_us.php">
+                    <span class="top-menu-item">
+                        About Us
+                    </span>
+                </a>
+            </td>
+            <td class="w-20">
+                <footer style="margin: 10px">Copyright &copy; 2022</footer>
+            </td>
+            <td class="w-20">
+                <a href="../common/contact_us.php">
+                    <span class="top-menu-item">
+                        Contact Us
+                    </span>
+                </a>
+            </td>
+            <td class="w-20"></td>
+        </tr>
+    </table>
+</footer>
 
 </html>

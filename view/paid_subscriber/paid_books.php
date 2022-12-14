@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once(__DIR__ . '/../../controller/paid_subscriber/paid_books_controller.php');
 
 if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
     header('location: ../../index.php?err=invalid_request');
@@ -8,6 +8,14 @@ if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
 if ($_SESSION['userType'] != 'paid_subscriber') {
     header('location: ../../index.php?err=invalid_request');
 }
+if (isset($_GET['err'])) {
+    echo $_GET['err'];
+}
+
+if (isset($_GET['msg'])) {
+    echo $_GET['msg'];
+}
+$books = getPaidBookList();
 ?>
 
 <html>
@@ -53,45 +61,44 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
             <td colspan="5" class="w-20" align="center">
                 <h1>
                     <b>
-                        <u>Welcome To Music Section</u>
+                        <u>Paid Book List</u>
                     </b>
                 </h1>
             </td>
         </tr>
-        <tr>
-            <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-darkgrey">
-                    <a href="music_list.php">
-                        <h2>
-                           Music List
-                        </h2>
-                    </a>
-                </div>
-            </td>
+        <tr align="left">  
+            
+            <th class="w-20"><u>Title</u></th>
+            <th class="w-20"><u>Author</u></th>
+            <th class="w-20"><u>Genre</u></th>
+            <th class="w-20"><u>Uploaded At</u></th>
         </tr>
-        <tr>
-            <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-steelblue">
-                    <a href="paid_musices.php">
-                        <h2>
-                           Paid Musices
-                        </h2>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-        <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-darkgrey">
-                    <a href="listened_musices.php">
-                        <h2>
-                            Listened Musices
-                        </h2>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        </tr>
+        <?php
+        
+        while ($row = mysqli_fetch_assoc($books)) {
+            $title = $row['Title'];
+            $author = $row['Author'];
+            $genre = $row['Genre'];
+            $uploadedAt = $row['UploadedAt'];
+        ?>
+            <tr>
+                <td class="w-20">
+                    <?php echo $title ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $author ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $genre ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $uploadedAt ?>
+                </td>
+            </tr>
+        <?php
+        }
+
+        ?>
     </table>
 </body>
 <footer>

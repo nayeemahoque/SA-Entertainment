@@ -1,19 +1,27 @@
 <?php
-session_start();
+require_once(__DIR__ . '/../../controller/admin/approved_game_controller.php');
 
 if (!isset($_SESSION['userEmail']) && !isset($_SESSION['userType'])) {
     header('location: ../../index.php?err=invalid_request');
 }
 
-if ($_SESSION['userType'] != 'paid_subscriber') {
+if ($_SESSION['userType'] != 'admin') {
     header('location: ../../index.php?err=invalid_request');
 }
+if (isset($_GET['err'])) {
+    echo $_GET['err'];
+}
+
+if (isset($_GET['msg'])) {
+    echo $_GET['msg'];
+}
+$game = getUploadedGames();
 ?>
 
 <html>
 
 <head>
-    <title>Paid Subscriber Home</title>
+    <title>Admin | Approved Game</title>
     <link rel="stylesheet" href="../../assets/style.css">
 </head>
 
@@ -34,11 +42,6 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
                         Settings
                     </span>
                 </a>
-                <a href="share_snap.php">
-                    <span class="top-menu-item">
-                        Snap!
-                    </span>
-                </a>
                 <a href="profile.php">
                     <span class="top-menu-item">
                         My Profile
@@ -53,45 +56,40 @@ if ($_SESSION['userType'] != 'paid_subscriber') {
             <td colspan="5" class="w-20" align="center">
                 <h1>
                     <b>
-                        <u>Welcome To Music Section</u>
+                        <u>Games Approval Section</u>
                     </b>
                 </h1>
             </td>
         </tr>
-        <tr>
-            <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-darkgrey">
-                    <a href="music_list.php">
-                        <h2>
-                           Music List
-                        </h2>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-steelblue">
-                    <a href="paid_musices.php">
-                        <h2>
-                           Paid Musices
-                        </h2>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-        <td colspan="2" class="w-20" align="center">
-                <div class="menu-tile bg-color-darkgrey">
-                    <a href="listened_musices.php">
-                        <h2>
-                            Listened Musices
-                        </h2>
-                    </a>
-                </div>
-            </td>
-        </tr>
-        </tr>
+        <tr align="left">
+            <th class="w-20"><u>Title</u></th>
+            <th class="w-20"><u>Genre</u></th>
+            <th class="w-20"><u>Uploaded At</u></th>
+            <th class="w-20"><u>Action</u></th>
+        <?php
+        while ($row = mysqli_fetch_assoc($game)) {
+            $title = $row['Title'];
+            $genre = $row['Genre'];
+            $uploadedAt = $row['UploadedAt'];
+        ?>
+            <tr>
+                <td class="w-20">
+                    <?php echo $title ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $genre ?>
+                </td>
+                <td class="w-20">
+                    <?php echo $uploadedAt ?>
+                </td>
+                <td class="w-20">
+                    <a href="../../controller/admin/delete_game_controller.php?title=<?php echo $title ?>">Delete</a>
+                    <a href="../../controller/admin/approve_game_controller.php?title=<?php echo $title ?>">Approve</a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
     </table>
 </body>
 <footer>

@@ -141,25 +141,8 @@ if ($_SESSION['userType'] != 'general_subscriber') {
         <tr>
             <td colspan="5">
                 <h1 align="center">
-                    What's new!!
+                    The job is to entertainment!!
                 </h1>
-            </td>
-        </tr>
-        <tr>
-            <td width="16%">
-                <img height="20%" width="100%" src="../assets/general_subscriber/images/books.jpg" alt="book">
-            </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/general_subscriber/images/movie.jpg" alt="movie">
-            </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/general_subscriber/images/music.jpg" alt="music">
-            </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/general_subscriber/images/series.jpg" alt="series">
-            </td>
-            <td width="16%">
-                <img height="20%" width="100%" src="../../assets/general_subscriber/images/game.jpg" alt="game">
             </td>
         </tr>
     </table>

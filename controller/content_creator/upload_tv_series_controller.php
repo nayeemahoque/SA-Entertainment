@@ -49,20 +49,11 @@ if (isset($_FILES['seriesFile'])) {
 $series = ['title' => $title, 'genre' => $genre, 'file' => $file, 'isOpenForGenSub' => $isOpenForGenSub, 'uploadedBy' => $uploadedBy, 'uploadedAt' => $uploadedAt];
 $status = insertSeries($series);
 
-if($status)
-        {
-            header("Location: ../../view/content_creator/uploaded_tv_series.php");
-        }
-        else 
-        {
-            header('location: ../../view/content_creator/upload_tv_series.php?err=failed');
-        }
-
-// if ($status) {
-//     header('location: ../../view/content_creator/upload_book.php?msg=success');
-// } else {
-//     header('location: ../../view/content_creator/upload_book.php?err=failed');
-// }
+if ($status) {
+    header("Location: ../../view/content_creator/uploaded_tv_series.php");
+} else {
+    header('location: ../../view/content_creator/upload_tv_series.php?err=failed');
+}
 ?>
 
 <!-- . -->
